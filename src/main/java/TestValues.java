@@ -34,30 +34,11 @@ public class TestValues {
         return map.get(v);
     }
 
-    public void merge(TestValues testValues){
-        for(soot.Value v : testValues.map.keySet()){
-            if(!this.map.containsKey(v)){
-                this.map.put(v, new ArrayList<>());
-            }
-            for(String s : testValues.map.get(v)){
-                if(!this.map.get(v).contains(s)){
-                    this.map.get(v).add(s);
-                }
-            }
-        }
-    }
-
     public void addNewTestCase(soot.Value v, String newCase) {
         if (!map.containsKey(v)) {
             map.put(v, new ArrayList<>());
         }
         map.get(v).add(newCase);
-    }
-
-    public  void copy(TestValues testValues) {
-        this.map.clear();
-        this.map.putAll(testValues.map);
-        // Datatypes are not touched
     }
 
     public void printTestValues() {

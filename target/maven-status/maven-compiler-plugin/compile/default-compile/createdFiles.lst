@@ -1,5 +1,11 @@
+Tracer$BinaryOpNode.class
+Tracer$ConstNode.class
+TestValues.class
+Tracer$ExprNode.class
+Tracer$VarNode.class
 CoverageTransformer.class
 CoverageMain.class
-TestValues.class
+Tracer.class
+Tracer$UnaryOpNode.class
 SootAnalyzer.class
 CoverageAnalysis.class

@@ -4,134 +4,128 @@ import soot.Unit;
 import soot.Value;
 import soot.jimple.IfStmt;
 import soot.toolkits.graph.UnitGraph;
-import soot.toolkits.scalar.ArraySparseSet;
-import soot.toolkits.scalar.FlowSet;
 import soot.toolkits.scalar.ForwardBranchedFlowAnalysis;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-// Example ForwardBranchedFlowAnalysis
-// Here we use FlowSet<Object> as a generic set, you can replace Object with the specific data type
-// you want to track (e.g. Local variables, Constant values, Definitions).
-public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<TestValues> {
+public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
 
     final UnitGraph graph;
+    public TestValues reporter;
 
     public CoverageAnalysis(UnitGraph graph) {
         super(graph);
         this.graph = graph;
-        doAnalysis();
-    }
-
-    @Override
-    protected TestValues newInitialFlow() {
+        
+        // Initialize the persistent reporter
         Map<Value, ArrayList<String>> map = new java.util.HashMap<>();
         Map<Value, soot.Type> dataTypes = new java.util.HashMap<>();
         List<Value> functionInputs = new ArrayList<>();
-        // System.out.println( " -------------------------- START OF LOCAL VARIABLES
-        // ---------------------------- " );
         for (Local l : graph.getBody().getLocals()) {
-            // System.out.println("Analyzing local variable: " + l + " of type: " +
-            // l.getType());
             map.put(l, new ArrayList<String>());
             dataTypes.put(l, l.getType());
         }
-        // System.out.println( " ----------------------------------END OF LOCAL
-        // VARIABLES ------------------------------- " );
-        // System.out.println( " -------------------------- START OF INPUT VARIABLES
-        // ---------------------------- " );
         for (Value v : graph.getBody().getParameterLocals()) {
-            // System.out.println("Tracking variable: " + v + " of type: " +
-            // dataTypes.get(v));
             functionInputs.add(v);
         }
-        // System.out.println(" ----------------------------------END OF INPUT
-        // VARIABLES------------------------------- ");
+        this.reporter = new TestValues(map, dataTypes, functionInputs);
 
-        return new TestValues(map, dataTypes, functionInputs);
+        doAnalysis();
+    }
+
+    public TestValues getReporter() {
+        return reporter;
     }
 
     @Override
-    protected void merge(TestValues testValues, TestValues a1, TestValues a2) {
-        testValues.merge(a1);
-        testValues.merge(a2);
+    protected Tracer newInitialFlow() {
+        return new Tracer();
     }
 
     @Override
-    protected void copy(TestValues testValues, TestValues a1) {
-        testValues.copy(a1);
+    protected void merge(Tracer dest, Tracer a1, Tracer a2) {
+        dest.copy(a1);
+        dest.merge(a2);
     }
 
-    private void HandleCondition(Value condition, TestValues testValues) {
-        // Here you can analyze the condition and update testValues accordingly
-        // For example, if the condition is a comparison of a variable to a constant,
-        // you can track that information
-        // This is just a placeholder for your actual analysis logic
+    @Override
+    protected void copy(Tracer source, Tracer dest) {
+        dest.copy(source);
+    }
+
+    private void HandleCondition(Value condition, Tracer tracer) {
         if (condition instanceof soot.jimple.BinopExpr) {
-            System.out.println("Analyzing condition: " + condition);
             soot.jimple.BinopExpr binopExpr = (soot.jimple.BinopExpr) condition;
             Value leftOp = binopExpr.getOp1();
             Value rightOp = binopExpr.getOp2();
             String expr = binopExpr.toString();
-            if (binopExpr.getType() == soot.IntType.v()) {
+
+            // Extract the operator string
+            String operator = "";
+            if (expr.contains("==")) operator = "==";
+            else if (expr.contains("!=")) operator = "!=";
+            else if (expr.contains(">=")) operator = ">=";
+            else if (expr.contains("<=")) operator = "<=";
+            else if (expr.contains(">")) operator = ">";
+            else if (expr.contains("<")) operator = "<";
+            else operator = "?";
+
+            // Add the equation to our Tracer's Expression Tree
+            Tracer.ExprNode leftNode = new Tracer.VarNode(leftOp);
+            Tracer.ExprNode rightNode = new Tracer.ConstNode(rightOp.toString());
+            Tracer.ExprNode eqNode = new Tracer.BinaryOpNode(operator, leftNode, rightNode);
+            tracer.addEquation(eqNode);
+
+            // Report the test values persistently using leftOp's type
+            if (leftOp.getType() == soot.IntType.v() || leftOp.getType() == soot.BooleanType.v()) {
                 if (expr.contains("==")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains("!=")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains(">")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains("<")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains(">=")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains("<=")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 }
-            } else if (binopExpr.getType() == soot.FloatType.v()) {
+            } else if (leftOp.getType() == soot.FloatType.v()) {
                 if (expr.contains("==")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains("!=")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains(">")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains("<")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains(">=")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains("<=")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 }
-            } else if (binopExpr.getType() == soot.RefType.v("java.lang.String")) {
+            } else if (leftOp.getType().toString().equals("java.lang.String")) {
                 if (expr.contains("==")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 } else if (expr.contains("!=")) {
-                    testValues.addNewTestCase(leftOp, rightOp.toString());
+                    reporter.addNewTestCase(leftOp, rightOp.toString());
                 }
             }
-            // Analyze the left and right operands of the binary expression
-            // System.out.println("Left operand: " + leftOp + " of type: " +
-            // leftOp.getType());
-            // System.out.println("Right operand: " + rightOp + " of type: " +
-            // rightOp.getType());
-            // You can add logic here to update testValues based on the analysis of the
-            // condition
         }
     }
 
     @Override
-    protected void flowThrough(TestValues in, Unit s, List<TestValues> fallOut, List<TestValues> branchOuts) {
-        // In Soot's ForwardBranchedFlowAnalysis, you MUST propagate the incoming state ('in')
-        // to the outgoing edges ('fallOut' and 'branchOuts'). Otherwise, the state is lost!
-        
+    protected void flowThrough(Tracer in, Unit s, List<Tracer> fallOut, List<Tracer> branchOuts) {
         // 1. Copy incoming state to all fallthrough targets
-        for (TestValues out : fallOut) {
+        for (Tracer out : fallOut) {
             copy(in, out);
         }
         
         // 2. Copy incoming state to all branch targets
-        for (TestValues out : branchOuts) {
+        for (Tracer out : branchOuts) {
             copy(in, out);
         }
 
@@ -140,10 +134,10 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<TestValues> {
             Value condition = ifStmt.getCondition();
             
             // Apply the condition analysis to the outgoing flow sets
-            for (TestValues out : fallOut) {
+            for (Tracer out : fallOut) {
                 HandleCondition(condition, out);
             }
-            for (TestValues out : branchOuts) {
+            for (Tracer out : branchOuts) {
                 HandleCondition(condition, out);
             }
         }
