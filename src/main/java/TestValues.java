@@ -38,7 +38,9 @@ public class TestValues {
         if (!map.containsKey(v)) {
             map.put(v, new ArrayList<>());
         }
-        map.get(v).add(newCase);
+        if (!map.get(v).contains(newCase)) {
+            map.get(v).add(newCase);
+        }
     }
 
     public void printTestValues() {
@@ -49,5 +51,82 @@ public class TestValues {
                 System.out.println("  Test Values: " + s);
             }
         }
+    }
+
+    public String generateJUnitTest(String className, String methodName) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("import org.junit.jupiter.api.Test;\n");
+        sb.append("import static org.junit.jupiter.api.Assertions.*;\n\n");
+        sb.append("public class ").append(className).append("Test {\n\n");
+        sb.append("    @Test\n");
+        sb.append("    public void test_").append(methodName).append("() {\n");
+        sb.append("        ").append(className).append(" obj = new ").append(className).append("();\n\n");
+
+        boolean hasTests = false;
+
+        // Iterate through each parameter
+        for (int i = 0; i < functionInputs.size(); i++) {
+            soot.Value targetParam = functionInputs.get(i);
+            List<String> valuesToTest = map.get(targetParam);
+            
+            if (valuesToTest == null || valuesToTest.isEmpty()) continue;
+
+            // Generate a test call for each value of this parameter
+            for (String testVal : valuesToTest) {
+                hasTests = true;
+                sb.append("        // Testing parameter ").append(targetParam).append(" with value: ").append(testVal).append("\n");
+                sb.append("        obj.").append(methodName).append("(");
+                
+                // Construct arguments
+                for (int j = 0; j < functionInputs.size(); j++) {
+                    soot.Value argParam = functionInputs.get(j);
+                    String argType = dataTypes.get(argParam).toString();
+                    String argValue;
+                    
+                    if (i == j) {
+                        // Use the specific test value for the target parameter
+                        argValue = formatValue(argType, testVal);
+                    } else {
+                        // Use a default value for other parameters
+                        argValue = getDefaultValue(argType);
+                    }
+                    
+                    sb.append(argValue);
+                    if (j < functionInputs.size() - 1) {
+                        sb.append(", ");
+                    }
+                }
+                sb.append(");\n");
+            }
+        }
+
+        if (!hasTests) {
+            sb.append("        // No boundary test cases were generated for this method.\n");
+        }
+
+        sb.append("    }\n");
+        sb.append("}\n");
+        return sb.toString();
+    }
+
+    private String formatValue(String type, String value) {
+        if (type.equals("boolean")) {
+            return value.equals("0") ? "false" : "true";
+        } else if (type.equals("int") || type.equals("byte") || type.equals("short") || type.equals("long")) {
+            return value;
+        } else if (type.equals("float") || type.equals("double")) {
+            return value + (type.equals("float") ? "f" : "d");
+        } else if (type.equals("java.lang.String")) {
+            return "\"" + value + "\"";
+        }
+        return "null";
+    }
+
+    private String getDefaultValue(String type) {
+        if (type.equals("boolean")) return "false";
+        if (type.equals("int") || type.equals("byte") || type.equals("short") || type.equals("long")) return "0";
+        if (type.equals("float") || type.equals("double")) return "0.0";
+        if (type.equals("java.lang.String")) return "\"\"";
+        return "null";
     }
 }

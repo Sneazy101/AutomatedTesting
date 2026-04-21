@@ -23,6 +23,13 @@ public class CoverageTransformer extends BodyTransformer {
         TestValues reporter = analysis.getReporter();
         if (reporter != null) {
             reporter.printTestValues();
+
+            String className = body.getMethod().getDeclaringClass().getShortName();
+            String methodName = body.getMethod().getName();
+            
+            System.out.println("\n--- Generated JUnit Test for " + methodName + " ---");
+            System.out.println(reporter.generateJUnitTest(className, methodName));
+            System.out.println("----------------------------------------\n");
         }
     }
 }
