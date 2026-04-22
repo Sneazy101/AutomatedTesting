@@ -100,20 +100,56 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
 
             // Report the test values persistently using leftOp's type
             if (leftOp.getType() == soot.IntType.v()) {
-                if (operator.equals("==") || operator.equals("!=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">") || operator.equals("<")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">=") || operator.equals("<=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
+                Object parsed = parseValue(leftOp.getType(), rightOp.toString());
+                if (parsed instanceof Integer) {
+                    int val = (Integer) parsed;
+                    if (operator.equals("==")) {
+                        reporter.addNewTestCase(leftOp, val);
+                        reporter.addNewTestCase(leftOp, val + 1);
+                    } else if (operator.equals("!=")) {
+                        reporter.addNewTestCase(leftOp, val + 1);
+                        reporter.addNewTestCase(leftOp, val);
+                    } else if (operator.equals(">")) {
+                        reporter.addNewTestCase(leftOp, val + 1);
+                        reporter.addNewTestCase(leftOp, val);
+                    } else if (operator.equals("<")) {
+                        reporter.addNewTestCase(leftOp, val - 1);
+                        reporter.addNewTestCase(leftOp, val);
+                    } else if (operator.equals(">=")) {
+                        reporter.addNewTestCase(leftOp, val);
+                        reporter.addNewTestCase(leftOp, val - 1);
+                    } else if (operator.equals("<=")) {
+                        reporter.addNewTestCase(leftOp, val);
+                        reporter.addNewTestCase(leftOp, val + 1);
+                    }
+                } else {
+                    reporter.addNewTestCase(leftOp, parsed);
                 }
             } else if (leftOp.getType() == soot.FloatType.v()) {
-                if (operator.equals("==") || operator.equals("!=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">") || operator.equals("<")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">=") || operator.equals("<=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
+                Object parsed = parseValue(leftOp.getType(), rightOp.toString());
+                if (parsed instanceof Float) {
+                    float val = (Float) parsed;
+                    if (operator.equals("==")) {
+                        reporter.addNewTestCase(leftOp, val);
+                        reporter.addNewTestCase(leftOp, val + 1.0f);
+                    } else if (operator.equals("!=")) {
+                        reporter.addNewTestCase(leftOp, val + 1.0f);
+                        reporter.addNewTestCase(leftOp, val);
+                    } else if (operator.equals(">")) {
+                        reporter.addNewTestCase(leftOp, val + 1.0f);
+                        reporter.addNewTestCase(leftOp, val);
+                    } else if (operator.equals("<")) {
+                        reporter.addNewTestCase(leftOp, val - 1.0f);
+                        reporter.addNewTestCase(leftOp, val);
+                    } else if (operator.equals(">=")) {
+                        reporter.addNewTestCase(leftOp, val);
+                        reporter.addNewTestCase(leftOp, val - 1.0f);
+                    } else if (operator.equals("<=")) {
+                        reporter.addNewTestCase(leftOp, val);
+                        reporter.addNewTestCase(leftOp, val + 1.0f);
+                    }
+                } else {
+                    reporter.addNewTestCase(leftOp, parsed);
                 }
             } else if (leftOp.getType().toString().equals("java.lang.String")) {
                 if (expr.contains("==") || expr.contains("!=")) {

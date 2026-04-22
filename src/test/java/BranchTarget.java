@@ -1,6 +1,6 @@
 public class BranchTarget {
 
-    public int classify(int age, boolean hasId, boolean vip, int purchases, String name) {
+    public int classify(float age, boolean hasId, boolean vip, int purchases, String name) {
         if (age < 0) {
             return -1;
         }
