@@ -70,10 +70,10 @@ public class TestValues {
             testCases = temp;
         }
 
-        System.out.println("Printing all test cases");
-        for (ArrayList<Object> testCase : testCases) {
-            System.out.println("Generated Test Case: " + testCase);
-        }
+//        System.out.println("Printing all test cases");
+//        for (ArrayList<Object> testCase : testCases) {
+//            System.out.println("Generated Test Case: " + testCase);
+//        }
 
         return testCases;
     }

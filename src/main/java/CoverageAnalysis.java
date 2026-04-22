@@ -187,6 +187,41 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
         return valStr;
     }
 
+    private void HandleSwitch(soot.jimple.SwitchStmt switchStmt) {
+        if (switchStmt instanceof soot.jimple.LookupSwitchStmt) {
+            soot.jimple.LookupSwitchStmt lookupStmt = (soot.jimple.LookupSwitchStmt) switchStmt;
+            Value key = lookupStmt.getKey();
+            
+            int maxVal = Integer.MIN_VALUE;
+            boolean hasValues = false;
+            for (Object valObj : lookupStmt.getLookupValues()) {
+                int v = 0;
+                if (valObj instanceof soot.jimple.IntConstant) {
+                    v = ((soot.jimple.IntConstant) valObj).value;
+                } else if (valObj instanceof Integer) {
+                    v = (Integer) valObj;
+                }
+                reporter.addNewTestCase(key, v);
+                if (v > maxVal) maxVal = v;
+                hasValues = true;
+            }
+            if (hasValues) {
+                reporter.addNewTestCase(key, maxVal + 1); // default case
+            } else {
+                reporter.addNewTestCase(key, 0); // default case
+            }
+        } else if (switchStmt instanceof soot.jimple.TableSwitchStmt) {
+            soot.jimple.TableSwitchStmt tableStmt = (soot.jimple.TableSwitchStmt) switchStmt;
+            Value key = tableStmt.getKey();
+            int low = tableStmt.getLowIndex();
+            int high = tableStmt.getHighIndex();
+            for (int i = low; i <= high; i++) {
+                reporter.addNewTestCase(key, i);
+            }
+            reporter.addNewTestCase(key, high + 1); // default case
+        }
+    }
+
     @Override
     protected void flowThrough(Tracer in, Unit s, List<Tracer> fallOut, List<Tracer> branchOuts) {
         // 1. Copy incoming state to all fallthrough targets
@@ -252,6 +287,8 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
             for (Tracer out : branchOuts) {
                 HandleCondition(condition, out);
             }
+        } else if (s instanceof soot.jimple.SwitchStmt) {
+            HandleSwitch((soot.jimple.SwitchStmt) s);
         }
     }
 }
