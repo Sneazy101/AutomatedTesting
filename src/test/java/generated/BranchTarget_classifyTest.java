@@ -7,869 +7,1445 @@ public class BranchTarget_classifyTest {
     public void test_classify() {
         BranchTarget obj = new BranchTarget();
 
-        // Testing with values: [0.0, true, true, 0, ]
-        obj.classify(0.0f, true, true, 0, "");
-        // Testing with values: [0.0, true, true, 0,  ]
-        obj.classify(0.0f, true, true, 0, " ");
-        // Testing with values: [0.0, true, true, 0, null]
-        obj.classify(0.0f, true, true, 0, "null");
-        // Testing with values: [0.0, true, true, 0, bumblebee]
-        obj.classify(0.0f, true, true, 0, "bumblebee");
-        // Testing with values: [0.0, true, true, 1, ]
-        obj.classify(0.0f, true, true, 1, "");
-        // Testing with values: [0.0, true, true, 1,  ]
-        obj.classify(0.0f, true, true, 1, " ");
-        // Testing with values: [0.0, true, true, 1, null]
-        obj.classify(0.0f, true, true, 1, "null");
-        // Testing with values: [0.0, true, true, 1, bumblebee]
-        obj.classify(0.0f, true, true, 1, "bumblebee");
-        // Testing with values: [0.0, true, true, -1, ]
-        obj.classify(0.0f, true, true, -1, "");
-        // Testing with values: [0.0, true, true, -1,  ]
-        obj.classify(0.0f, true, true, -1, " ");
-        // Testing with values: [0.0, true, true, -1, null]
-        obj.classify(0.0f, true, true, -1, "null");
-        // Testing with values: [0.0, true, true, -1, bumblebee]
-        obj.classify(0.0f, true, true, -1, "bumblebee");
-        // Testing with values: [0.0, true, true, 10, ]
-        obj.classify(0.0f, true, true, 10, "");
-        // Testing with values: [0.0, true, true, 10,  ]
-        obj.classify(0.0f, true, true, 10, " ");
-        // Testing with values: [0.0, true, true, 10, null]
-        obj.classify(0.0f, true, true, 10, "null");
-        // Testing with values: [0.0, true, true, 10, bumblebee]
-        obj.classify(0.0f, true, true, 10, "bumblebee");
-        // Testing with values: [0.0, true, true, 11, ]
-        obj.classify(0.0f, true, true, 11, "");
-        // Testing with values: [0.0, true, true, 11,  ]
-        obj.classify(0.0f, true, true, 11, " ");
-        // Testing with values: [0.0, true, true, 11, null]
-        obj.classify(0.0f, true, true, 11, "null");
-        // Testing with values: [0.0, true, true, 11, bumblebee]
-        obj.classify(0.0f, true, true, 11, "bumblebee");
-        // Testing with values: [0.0, true, true, 20, ]
-        obj.classify(0.0f, true, true, 20, "");
-        // Testing with values: [0.0, true, true, 20,  ]
-        obj.classify(0.0f, true, true, 20, " ");
-        // Testing with values: [0.0, true, true, 20, null]
-        obj.classify(0.0f, true, true, 20, "null");
-        // Testing with values: [0.0, true, true, 20, bumblebee]
-        obj.classify(0.0f, true, true, 20, "bumblebee");
-        // Testing with values: [0.0, true, true, 21, ]
-        obj.classify(0.0f, true, true, 21, "");
-        // Testing with values: [0.0, true, true, 21,  ]
-        obj.classify(0.0f, true, true, 21, " ");
-        // Testing with values: [0.0, true, true, 21, null]
-        obj.classify(0.0f, true, true, 21, "null");
-        // Testing with values: [0.0, true, true, 21, bumblebee]
-        obj.classify(0.0f, true, true, 21, "bumblebee");
-        // Testing with values: [0.0, true, true, 2, ]
-        obj.classify(0.0f, true, true, 2, "");
-        // Testing with values: [0.0, true, true, 2,  ]
-        obj.classify(0.0f, true, true, 2, " ");
-        // Testing with values: [0.0, true, true, 2, null]
-        obj.classify(0.0f, true, true, 2, "null");
-        // Testing with values: [0.0, true, true, 2, bumblebee]
-        obj.classify(0.0f, true, true, 2, "bumblebee");
-        // Testing with values: [0.0, true, true, 3, ]
-        obj.classify(0.0f, true, true, 3, "");
-        // Testing with values: [0.0, true, true, 3,  ]
-        obj.classify(0.0f, true, true, 3, " ");
-        // Testing with values: [0.0, true, true, 3, null]
-        obj.classify(0.0f, true, true, 3, "null");
-        // Testing with values: [0.0, true, true, 3, bumblebee]
-        obj.classify(0.0f, true, true, 3, "bumblebee");
-        // Testing with values: [0.0, true, false, 0, ]
-        obj.classify(0.0f, true, false, 0, "");
-        // Testing with values: [0.0, true, false, 0,  ]
-        obj.classify(0.0f, true, false, 0, " ");
-        // Testing with values: [0.0, true, false, 0, null]
-        obj.classify(0.0f, true, false, 0, "null");
-        // Testing with values: [0.0, true, false, 0, bumblebee]
-        obj.classify(0.0f, true, false, 0, "bumblebee");
-        // Testing with values: [0.0, true, false, 1, ]
-        obj.classify(0.0f, true, false, 1, "");
-        // Testing with values: [0.0, true, false, 1,  ]
-        obj.classify(0.0f, true, false, 1, " ");
-        // Testing with values: [0.0, true, false, 1, null]
-        obj.classify(0.0f, true, false, 1, "null");
-        // Testing with values: [0.0, true, false, 1, bumblebee]
-        obj.classify(0.0f, true, false, 1, "bumblebee");
-        // Testing with values: [0.0, true, false, -1, ]
-        obj.classify(0.0f, true, false, -1, "");
-        // Testing with values: [0.0, true, false, -1,  ]
-        obj.classify(0.0f, true, false, -1, " ");
-        // Testing with values: [0.0, true, false, -1, null]
-        obj.classify(0.0f, true, false, -1, "null");
-        // Testing with values: [0.0, true, false, -1, bumblebee]
-        obj.classify(0.0f, true, false, -1, "bumblebee");
-        // Testing with values: [0.0, true, false, 10, ]
-        obj.classify(0.0f, true, false, 10, "");
-        // Testing with values: [0.0, true, false, 10,  ]
-        obj.classify(0.0f, true, false, 10, " ");
-        // Testing with values: [0.0, true, false, 10, null]
-        obj.classify(0.0f, true, false, 10, "null");
-        // Testing with values: [0.0, true, false, 10, bumblebee]
-        obj.classify(0.0f, true, false, 10, "bumblebee");
-        // Testing with values: [0.0, true, false, 11, ]
-        obj.classify(0.0f, true, false, 11, "");
-        // Testing with values: [0.0, true, false, 11,  ]
-        obj.classify(0.0f, true, false, 11, " ");
-        // Testing with values: [0.0, true, false, 11, null]
-        obj.classify(0.0f, true, false, 11, "null");
-        // Testing with values: [0.0, true, false, 11, bumblebee]
-        obj.classify(0.0f, true, false, 11, "bumblebee");
-        // Testing with values: [0.0, true, false, 20, ]
-        obj.classify(0.0f, true, false, 20, "");
-        // Testing with values: [0.0, true, false, 20,  ]
-        obj.classify(0.0f, true, false, 20, " ");
-        // Testing with values: [0.0, true, false, 20, null]
-        obj.classify(0.0f, true, false, 20, "null");
-        // Testing with values: [0.0, true, false, 20, bumblebee]
-        obj.classify(0.0f, true, false, 20, "bumblebee");
-        // Testing with values: [0.0, true, false, 21, ]
-        obj.classify(0.0f, true, false, 21, "");
-        // Testing with values: [0.0, true, false, 21,  ]
-        obj.classify(0.0f, true, false, 21, " ");
-        // Testing with values: [0.0, true, false, 21, null]
-        obj.classify(0.0f, true, false, 21, "null");
-        // Testing with values: [0.0, true, false, 21, bumblebee]
-        obj.classify(0.0f, true, false, 21, "bumblebee");
-        // Testing with values: [0.0, true, false, 2, ]
-        obj.classify(0.0f, true, false, 2, "");
-        // Testing with values: [0.0, true, false, 2,  ]
-        obj.classify(0.0f, true, false, 2, " ");
-        // Testing with values: [0.0, true, false, 2, null]
-        obj.classify(0.0f, true, false, 2, "null");
-        // Testing with values: [0.0, true, false, 2, bumblebee]
-        obj.classify(0.0f, true, false, 2, "bumblebee");
-        // Testing with values: [0.0, true, false, 3, ]
-        obj.classify(0.0f, true, false, 3, "");
-        // Testing with values: [0.0, true, false, 3,  ]
-        obj.classify(0.0f, true, false, 3, " ");
-        // Testing with values: [0.0, true, false, 3, null]
-        obj.classify(0.0f, true, false, 3, "null");
-        // Testing with values: [0.0, true, false, 3, bumblebee]
-        obj.classify(0.0f, true, false, 3, "bumblebee");
-        // Testing with values: [0.0, false, true, 0, ]
-        obj.classify(0.0f, false, true, 0, "");
-        // Testing with values: [0.0, false, true, 0,  ]
-        obj.classify(0.0f, false, true, 0, " ");
-        // Testing with values: [0.0, false, true, 0, null]
-        obj.classify(0.0f, false, true, 0, "null");
-        // Testing with values: [0.0, false, true, 0, bumblebee]
-        obj.classify(0.0f, false, true, 0, "bumblebee");
-        // Testing with values: [0.0, false, true, 1, ]
-        obj.classify(0.0f, false, true, 1, "");
-        // Testing with values: [0.0, false, true, 1,  ]
-        obj.classify(0.0f, false, true, 1, " ");
-        // Testing with values: [0.0, false, true, 1, null]
-        obj.classify(0.0f, false, true, 1, "null");
-        // Testing with values: [0.0, false, true, 1, bumblebee]
-        obj.classify(0.0f, false, true, 1, "bumblebee");
-        // Testing with values: [0.0, false, true, -1, ]
-        obj.classify(0.0f, false, true, -1, "");
-        // Testing with values: [0.0, false, true, -1,  ]
-        obj.classify(0.0f, false, true, -1, " ");
-        // Testing with values: [0.0, false, true, -1, null]
-        obj.classify(0.0f, false, true, -1, "null");
-        // Testing with values: [0.0, false, true, -1, bumblebee]
-        obj.classify(0.0f, false, true, -1, "bumblebee");
-        // Testing with values: [0.0, false, true, 10, ]
-        obj.classify(0.0f, false, true, 10, "");
-        // Testing with values: [0.0, false, true, 10,  ]
-        obj.classify(0.0f, false, true, 10, " ");
-        // Testing with values: [0.0, false, true, 10, null]
-        obj.classify(0.0f, false, true, 10, "null");
-        // Testing with values: [0.0, false, true, 10, bumblebee]
-        obj.classify(0.0f, false, true, 10, "bumblebee");
-        // Testing with values: [0.0, false, true, 11, ]
-        obj.classify(0.0f, false, true, 11, "");
-        // Testing with values: [0.0, false, true, 11,  ]
-        obj.classify(0.0f, false, true, 11, " ");
-        // Testing with values: [0.0, false, true, 11, null]
-        obj.classify(0.0f, false, true, 11, "null");
-        // Testing with values: [0.0, false, true, 11, bumblebee]
-        obj.classify(0.0f, false, true, 11, "bumblebee");
-        // Testing with values: [0.0, false, true, 20, ]
-        obj.classify(0.0f, false, true, 20, "");
-        // Testing with values: [0.0, false, true, 20,  ]
-        obj.classify(0.0f, false, true, 20, " ");
-        // Testing with values: [0.0, false, true, 20, null]
-        obj.classify(0.0f, false, true, 20, "null");
-        // Testing with values: [0.0, false, true, 20, bumblebee]
-        obj.classify(0.0f, false, true, 20, "bumblebee");
-        // Testing with values: [0.0, false, true, 21, ]
-        obj.classify(0.0f, false, true, 21, "");
-        // Testing with values: [0.0, false, true, 21,  ]
-        obj.classify(0.0f, false, true, 21, " ");
-        // Testing with values: [0.0, false, true, 21, null]
-        obj.classify(0.0f, false, true, 21, "null");
-        // Testing with values: [0.0, false, true, 21, bumblebee]
-        obj.classify(0.0f, false, true, 21, "bumblebee");
-        // Testing with values: [0.0, false, true, 2, ]
-        obj.classify(0.0f, false, true, 2, "");
-        // Testing with values: [0.0, false, true, 2,  ]
-        obj.classify(0.0f, false, true, 2, " ");
-        // Testing with values: [0.0, false, true, 2, null]
-        obj.classify(0.0f, false, true, 2, "null");
-        // Testing with values: [0.0, false, true, 2, bumblebee]
-        obj.classify(0.0f, false, true, 2, "bumblebee");
-        // Testing with values: [0.0, false, true, 3, ]
-        obj.classify(0.0f, false, true, 3, "");
-        // Testing with values: [0.0, false, true, 3,  ]
-        obj.classify(0.0f, false, true, 3, " ");
-        // Testing with values: [0.0, false, true, 3, null]
-        obj.classify(0.0f, false, true, 3, "null");
-        // Testing with values: [0.0, false, true, 3, bumblebee]
-        obj.classify(0.0f, false, true, 3, "bumblebee");
-        // Testing with values: [0.0, false, false, 0, ]
-        obj.classify(0.0f, false, false, 0, "");
-        // Testing with values: [0.0, false, false, 0,  ]
-        obj.classify(0.0f, false, false, 0, " ");
-        // Testing with values: [0.0, false, false, 0, null]
-        obj.classify(0.0f, false, false, 0, "null");
-        // Testing with values: [0.0, false, false, 0, bumblebee]
-        obj.classify(0.0f, false, false, 0, "bumblebee");
-        // Testing with values: [0.0, false, false, 1, ]
-        obj.classify(0.0f, false, false, 1, "");
-        // Testing with values: [0.0, false, false, 1,  ]
-        obj.classify(0.0f, false, false, 1, " ");
-        // Testing with values: [0.0, false, false, 1, null]
-        obj.classify(0.0f, false, false, 1, "null");
-        // Testing with values: [0.0, false, false, 1, bumblebee]
-        obj.classify(0.0f, false, false, 1, "bumblebee");
-        // Testing with values: [0.0, false, false, -1, ]
-        obj.classify(0.0f, false, false, -1, "");
-        // Testing with values: [0.0, false, false, -1,  ]
-        obj.classify(0.0f, false, false, -1, " ");
-        // Testing with values: [0.0, false, false, -1, null]
-        obj.classify(0.0f, false, false, -1, "null");
-        // Testing with values: [0.0, false, false, -1, bumblebee]
-        obj.classify(0.0f, false, false, -1, "bumblebee");
-        // Testing with values: [0.0, false, false, 10, ]
-        obj.classify(0.0f, false, false, 10, "");
-        // Testing with values: [0.0, false, false, 10,  ]
-        obj.classify(0.0f, false, false, 10, " ");
-        // Testing with values: [0.0, false, false, 10, null]
-        obj.classify(0.0f, false, false, 10, "null");
-        // Testing with values: [0.0, false, false, 10, bumblebee]
-        obj.classify(0.0f, false, false, 10, "bumblebee");
-        // Testing with values: [0.0, false, false, 11, ]
-        obj.classify(0.0f, false, false, 11, "");
-        // Testing with values: [0.0, false, false, 11,  ]
-        obj.classify(0.0f, false, false, 11, " ");
-        // Testing with values: [0.0, false, false, 11, null]
-        obj.classify(0.0f, false, false, 11, "null");
-        // Testing with values: [0.0, false, false, 11, bumblebee]
-        obj.classify(0.0f, false, false, 11, "bumblebee");
-        // Testing with values: [0.0, false, false, 20, ]
-        obj.classify(0.0f, false, false, 20, "");
-        // Testing with values: [0.0, false, false, 20,  ]
-        obj.classify(0.0f, false, false, 20, " ");
-        // Testing with values: [0.0, false, false, 20, null]
-        obj.classify(0.0f, false, false, 20, "null");
-        // Testing with values: [0.0, false, false, 20, bumblebee]
-        obj.classify(0.0f, false, false, 20, "bumblebee");
-        // Testing with values: [0.0, false, false, 21, ]
-        obj.classify(0.0f, false, false, 21, "");
-        // Testing with values: [0.0, false, false, 21,  ]
-        obj.classify(0.0f, false, false, 21, " ");
-        // Testing with values: [0.0, false, false, 21, null]
-        obj.classify(0.0f, false, false, 21, "null");
-        // Testing with values: [0.0, false, false, 21, bumblebee]
-        obj.classify(0.0f, false, false, 21, "bumblebee");
-        // Testing with values: [0.0, false, false, 2, ]
-        obj.classify(0.0f, false, false, 2, "");
-        // Testing with values: [0.0, false, false, 2,  ]
-        obj.classify(0.0f, false, false, 2, " ");
-        // Testing with values: [0.0, false, false, 2, null]
-        obj.classify(0.0f, false, false, 2, "null");
-        // Testing with values: [0.0, false, false, 2, bumblebee]
-        obj.classify(0.0f, false, false, 2, "bumblebee");
-        // Testing with values: [0.0, false, false, 3, ]
-        obj.classify(0.0f, false, false, 3, "");
-        // Testing with values: [0.0, false, false, 3,  ]
-        obj.classify(0.0f, false, false, 3, " ");
-        // Testing with values: [0.0, false, false, 3, null]
-        obj.classify(0.0f, false, false, 3, "null");
-        // Testing with values: [0.0, false, false, 3, bumblebee]
-        obj.classify(0.0f, false, false, 3, "bumblebee");
-        // Testing with values: [1.0, true, true, 0, ]
-        obj.classify(1.0f, true, true, 0, "");
-        // Testing with values: [1.0, true, true, 0,  ]
-        obj.classify(1.0f, true, true, 0, " ");
-        // Testing with values: [1.0, true, true, 0, null]
-        obj.classify(1.0f, true, true, 0, "null");
-        // Testing with values: [1.0, true, true, 0, bumblebee]
-        obj.classify(1.0f, true, true, 0, "bumblebee");
-        // Testing with values: [1.0, true, true, 1, ]
-        obj.classify(1.0f, true, true, 1, "");
-        // Testing with values: [1.0, true, true, 1,  ]
-        obj.classify(1.0f, true, true, 1, " ");
-        // Testing with values: [1.0, true, true, 1, null]
-        obj.classify(1.0f, true, true, 1, "null");
-        // Testing with values: [1.0, true, true, 1, bumblebee]
-        obj.classify(1.0f, true, true, 1, "bumblebee");
-        // Testing with values: [1.0, true, true, -1, ]
-        obj.classify(1.0f, true, true, -1, "");
-        // Testing with values: [1.0, true, true, -1,  ]
-        obj.classify(1.0f, true, true, -1, " ");
-        // Testing with values: [1.0, true, true, -1, null]
-        obj.classify(1.0f, true, true, -1, "null");
-        // Testing with values: [1.0, true, true, -1, bumblebee]
-        obj.classify(1.0f, true, true, -1, "bumblebee");
-        // Testing with values: [1.0, true, true, 10, ]
-        obj.classify(1.0f, true, true, 10, "");
-        // Testing with values: [1.0, true, true, 10,  ]
-        obj.classify(1.0f, true, true, 10, " ");
-        // Testing with values: [1.0, true, true, 10, null]
-        obj.classify(1.0f, true, true, 10, "null");
-        // Testing with values: [1.0, true, true, 10, bumblebee]
-        obj.classify(1.0f, true, true, 10, "bumblebee");
-        // Testing with values: [1.0, true, true, 11, ]
-        obj.classify(1.0f, true, true, 11, "");
-        // Testing with values: [1.0, true, true, 11,  ]
-        obj.classify(1.0f, true, true, 11, " ");
-        // Testing with values: [1.0, true, true, 11, null]
-        obj.classify(1.0f, true, true, 11, "null");
-        // Testing with values: [1.0, true, true, 11, bumblebee]
-        obj.classify(1.0f, true, true, 11, "bumblebee");
-        // Testing with values: [1.0, true, true, 20, ]
-        obj.classify(1.0f, true, true, 20, "");
-        // Testing with values: [1.0, true, true, 20,  ]
-        obj.classify(1.0f, true, true, 20, " ");
-        // Testing with values: [1.0, true, true, 20, null]
-        obj.classify(1.0f, true, true, 20, "null");
-        // Testing with values: [1.0, true, true, 20, bumblebee]
-        obj.classify(1.0f, true, true, 20, "bumblebee");
-        // Testing with values: [1.0, true, true, 21, ]
-        obj.classify(1.0f, true, true, 21, "");
-        // Testing with values: [1.0, true, true, 21,  ]
-        obj.classify(1.0f, true, true, 21, " ");
-        // Testing with values: [1.0, true, true, 21, null]
-        obj.classify(1.0f, true, true, 21, "null");
-        // Testing with values: [1.0, true, true, 21, bumblebee]
-        obj.classify(1.0f, true, true, 21, "bumblebee");
-        // Testing with values: [1.0, true, true, 2, ]
-        obj.classify(1.0f, true, true, 2, "");
-        // Testing with values: [1.0, true, true, 2,  ]
-        obj.classify(1.0f, true, true, 2, " ");
-        // Testing with values: [1.0, true, true, 2, null]
-        obj.classify(1.0f, true, true, 2, "null");
-        // Testing with values: [1.0, true, true, 2, bumblebee]
-        obj.classify(1.0f, true, true, 2, "bumblebee");
-        // Testing with values: [1.0, true, true, 3, ]
-        obj.classify(1.0f, true, true, 3, "");
-        // Testing with values: [1.0, true, true, 3,  ]
-        obj.classify(1.0f, true, true, 3, " ");
-        // Testing with values: [1.0, true, true, 3, null]
-        obj.classify(1.0f, true, true, 3, "null");
-        // Testing with values: [1.0, true, true, 3, bumblebee]
-        obj.classify(1.0f, true, true, 3, "bumblebee");
-        // Testing with values: [1.0, true, false, 0, ]
-        obj.classify(1.0f, true, false, 0, "");
-        // Testing with values: [1.0, true, false, 0,  ]
-        obj.classify(1.0f, true, false, 0, " ");
-        // Testing with values: [1.0, true, false, 0, null]
-        obj.classify(1.0f, true, false, 0, "null");
-        // Testing with values: [1.0, true, false, 0, bumblebee]
-        obj.classify(1.0f, true, false, 0, "bumblebee");
-        // Testing with values: [1.0, true, false, 1, ]
-        obj.classify(1.0f, true, false, 1, "");
-        // Testing with values: [1.0, true, false, 1,  ]
-        obj.classify(1.0f, true, false, 1, " ");
-        // Testing with values: [1.0, true, false, 1, null]
-        obj.classify(1.0f, true, false, 1, "null");
-        // Testing with values: [1.0, true, false, 1, bumblebee]
-        obj.classify(1.0f, true, false, 1, "bumblebee");
-        // Testing with values: [1.0, true, false, -1, ]
-        obj.classify(1.0f, true, false, -1, "");
-        // Testing with values: [1.0, true, false, -1,  ]
-        obj.classify(1.0f, true, false, -1, " ");
-        // Testing with values: [1.0, true, false, -1, null]
-        obj.classify(1.0f, true, false, -1, "null");
-        // Testing with values: [1.0, true, false, -1, bumblebee]
-        obj.classify(1.0f, true, false, -1, "bumblebee");
-        // Testing with values: [1.0, true, false, 10, ]
-        obj.classify(1.0f, true, false, 10, "");
-        // Testing with values: [1.0, true, false, 10,  ]
-        obj.classify(1.0f, true, false, 10, " ");
-        // Testing with values: [1.0, true, false, 10, null]
-        obj.classify(1.0f, true, false, 10, "null");
-        // Testing with values: [1.0, true, false, 10, bumblebee]
-        obj.classify(1.0f, true, false, 10, "bumblebee");
-        // Testing with values: [1.0, true, false, 11, ]
-        obj.classify(1.0f, true, false, 11, "");
-        // Testing with values: [1.0, true, false, 11,  ]
-        obj.classify(1.0f, true, false, 11, " ");
-        // Testing with values: [1.0, true, false, 11, null]
-        obj.classify(1.0f, true, false, 11, "null");
-        // Testing with values: [1.0, true, false, 11, bumblebee]
-        obj.classify(1.0f, true, false, 11, "bumblebee");
-        // Testing with values: [1.0, true, false, 20, ]
-        obj.classify(1.0f, true, false, 20, "");
-        // Testing with values: [1.0, true, false, 20,  ]
-        obj.classify(1.0f, true, false, 20, " ");
-        // Testing with values: [1.0, true, false, 20, null]
-        obj.classify(1.0f, true, false, 20, "null");
-        // Testing with values: [1.0, true, false, 20, bumblebee]
-        obj.classify(1.0f, true, false, 20, "bumblebee");
-        // Testing with values: [1.0, true, false, 21, ]
-        obj.classify(1.0f, true, false, 21, "");
-        // Testing with values: [1.0, true, false, 21,  ]
-        obj.classify(1.0f, true, false, 21, " ");
-        // Testing with values: [1.0, true, false, 21, null]
-        obj.classify(1.0f, true, false, 21, "null");
-        // Testing with values: [1.0, true, false, 21, bumblebee]
-        obj.classify(1.0f, true, false, 21, "bumblebee");
-        // Testing with values: [1.0, true, false, 2, ]
-        obj.classify(1.0f, true, false, 2, "");
-        // Testing with values: [1.0, true, false, 2,  ]
-        obj.classify(1.0f, true, false, 2, " ");
-        // Testing with values: [1.0, true, false, 2, null]
-        obj.classify(1.0f, true, false, 2, "null");
-        // Testing with values: [1.0, true, false, 2, bumblebee]
-        obj.classify(1.0f, true, false, 2, "bumblebee");
-        // Testing with values: [1.0, true, false, 3, ]
-        obj.classify(1.0f, true, false, 3, "");
-        // Testing with values: [1.0, true, false, 3,  ]
-        obj.classify(1.0f, true, false, 3, " ");
-        // Testing with values: [1.0, true, false, 3, null]
-        obj.classify(1.0f, true, false, 3, "null");
-        // Testing with values: [1.0, true, false, 3, bumblebee]
-        obj.classify(1.0f, true, false, 3, "bumblebee");
-        // Testing with values: [1.0, false, true, 0, ]
-        obj.classify(1.0f, false, true, 0, "");
-        // Testing with values: [1.0, false, true, 0,  ]
-        obj.classify(1.0f, false, true, 0, " ");
-        // Testing with values: [1.0, false, true, 0, null]
-        obj.classify(1.0f, false, true, 0, "null");
-        // Testing with values: [1.0, false, true, 0, bumblebee]
-        obj.classify(1.0f, false, true, 0, "bumblebee");
-        // Testing with values: [1.0, false, true, 1, ]
-        obj.classify(1.0f, false, true, 1, "");
-        // Testing with values: [1.0, false, true, 1,  ]
-        obj.classify(1.0f, false, true, 1, " ");
-        // Testing with values: [1.0, false, true, 1, null]
-        obj.classify(1.0f, false, true, 1, "null");
-        // Testing with values: [1.0, false, true, 1, bumblebee]
-        obj.classify(1.0f, false, true, 1, "bumblebee");
-        // Testing with values: [1.0, false, true, -1, ]
-        obj.classify(1.0f, false, true, -1, "");
-        // Testing with values: [1.0, false, true, -1,  ]
-        obj.classify(1.0f, false, true, -1, " ");
-        // Testing with values: [1.0, false, true, -1, null]
-        obj.classify(1.0f, false, true, -1, "null");
-        // Testing with values: [1.0, false, true, -1, bumblebee]
-        obj.classify(1.0f, false, true, -1, "bumblebee");
-        // Testing with values: [1.0, false, true, 10, ]
-        obj.classify(1.0f, false, true, 10, "");
-        // Testing with values: [1.0, false, true, 10,  ]
-        obj.classify(1.0f, false, true, 10, " ");
-        // Testing with values: [1.0, false, true, 10, null]
-        obj.classify(1.0f, false, true, 10, "null");
-        // Testing with values: [1.0, false, true, 10, bumblebee]
-        obj.classify(1.0f, false, true, 10, "bumblebee");
-        // Testing with values: [1.0, false, true, 11, ]
-        obj.classify(1.0f, false, true, 11, "");
-        // Testing with values: [1.0, false, true, 11,  ]
-        obj.classify(1.0f, false, true, 11, " ");
-        // Testing with values: [1.0, false, true, 11, null]
-        obj.classify(1.0f, false, true, 11, "null");
-        // Testing with values: [1.0, false, true, 11, bumblebee]
-        obj.classify(1.0f, false, true, 11, "bumblebee");
-        // Testing with values: [1.0, false, true, 20, ]
-        obj.classify(1.0f, false, true, 20, "");
-        // Testing with values: [1.0, false, true, 20,  ]
-        obj.classify(1.0f, false, true, 20, " ");
-        // Testing with values: [1.0, false, true, 20, null]
-        obj.classify(1.0f, false, true, 20, "null");
-        // Testing with values: [1.0, false, true, 20, bumblebee]
-        obj.classify(1.0f, false, true, 20, "bumblebee");
-        // Testing with values: [1.0, false, true, 21, ]
-        obj.classify(1.0f, false, true, 21, "");
-        // Testing with values: [1.0, false, true, 21,  ]
-        obj.classify(1.0f, false, true, 21, " ");
-        // Testing with values: [1.0, false, true, 21, null]
-        obj.classify(1.0f, false, true, 21, "null");
-        // Testing with values: [1.0, false, true, 21, bumblebee]
-        obj.classify(1.0f, false, true, 21, "bumblebee");
-        // Testing with values: [1.0, false, true, 2, ]
-        obj.classify(1.0f, false, true, 2, "");
-        // Testing with values: [1.0, false, true, 2,  ]
-        obj.classify(1.0f, false, true, 2, " ");
-        // Testing with values: [1.0, false, true, 2, null]
-        obj.classify(1.0f, false, true, 2, "null");
-        // Testing with values: [1.0, false, true, 2, bumblebee]
-        obj.classify(1.0f, false, true, 2, "bumblebee");
-        // Testing with values: [1.0, false, true, 3, ]
-        obj.classify(1.0f, false, true, 3, "");
-        // Testing with values: [1.0, false, true, 3,  ]
-        obj.classify(1.0f, false, true, 3, " ");
-        // Testing with values: [1.0, false, true, 3, null]
-        obj.classify(1.0f, false, true, 3, "null");
-        // Testing with values: [1.0, false, true, 3, bumblebee]
-        obj.classify(1.0f, false, true, 3, "bumblebee");
-        // Testing with values: [1.0, false, false, 0, ]
-        obj.classify(1.0f, false, false, 0, "");
-        // Testing with values: [1.0, false, false, 0,  ]
-        obj.classify(1.0f, false, false, 0, " ");
-        // Testing with values: [1.0, false, false, 0, null]
-        obj.classify(1.0f, false, false, 0, "null");
-        // Testing with values: [1.0, false, false, 0, bumblebee]
-        obj.classify(1.0f, false, false, 0, "bumblebee");
-        // Testing with values: [1.0, false, false, 1, ]
-        obj.classify(1.0f, false, false, 1, "");
-        // Testing with values: [1.0, false, false, 1,  ]
-        obj.classify(1.0f, false, false, 1, " ");
-        // Testing with values: [1.0, false, false, 1, null]
-        obj.classify(1.0f, false, false, 1, "null");
-        // Testing with values: [1.0, false, false, 1, bumblebee]
-        obj.classify(1.0f, false, false, 1, "bumblebee");
-        // Testing with values: [1.0, false, false, -1, ]
-        obj.classify(1.0f, false, false, -1, "");
-        // Testing with values: [1.0, false, false, -1,  ]
-        obj.classify(1.0f, false, false, -1, " ");
-        // Testing with values: [1.0, false, false, -1, null]
-        obj.classify(1.0f, false, false, -1, "null");
-        // Testing with values: [1.0, false, false, -1, bumblebee]
-        obj.classify(1.0f, false, false, -1, "bumblebee");
-        // Testing with values: [1.0, false, false, 10, ]
-        obj.classify(1.0f, false, false, 10, "");
-        // Testing with values: [1.0, false, false, 10,  ]
-        obj.classify(1.0f, false, false, 10, " ");
-        // Testing with values: [1.0, false, false, 10, null]
-        obj.classify(1.0f, false, false, 10, "null");
-        // Testing with values: [1.0, false, false, 10, bumblebee]
-        obj.classify(1.0f, false, false, 10, "bumblebee");
-        // Testing with values: [1.0, false, false, 11, ]
-        obj.classify(1.0f, false, false, 11, "");
-        // Testing with values: [1.0, false, false, 11,  ]
-        obj.classify(1.0f, false, false, 11, " ");
-        // Testing with values: [1.0, false, false, 11, null]
-        obj.classify(1.0f, false, false, 11, "null");
-        // Testing with values: [1.0, false, false, 11, bumblebee]
-        obj.classify(1.0f, false, false, 11, "bumblebee");
-        // Testing with values: [1.0, false, false, 20, ]
-        obj.classify(1.0f, false, false, 20, "");
-        // Testing with values: [1.0, false, false, 20,  ]
-        obj.classify(1.0f, false, false, 20, " ");
-        // Testing with values: [1.0, false, false, 20, null]
-        obj.classify(1.0f, false, false, 20, "null");
-        // Testing with values: [1.0, false, false, 20, bumblebee]
-        obj.classify(1.0f, false, false, 20, "bumblebee");
-        // Testing with values: [1.0, false, false, 21, ]
-        obj.classify(1.0f, false, false, 21, "");
-        // Testing with values: [1.0, false, false, 21,  ]
-        obj.classify(1.0f, false, false, 21, " ");
-        // Testing with values: [1.0, false, false, 21, null]
-        obj.classify(1.0f, false, false, 21, "null");
-        // Testing with values: [1.0, false, false, 21, bumblebee]
-        obj.classify(1.0f, false, false, 21, "bumblebee");
-        // Testing with values: [1.0, false, false, 2, ]
-        obj.classify(1.0f, false, false, 2, "");
-        // Testing with values: [1.0, false, false, 2,  ]
-        obj.classify(1.0f, false, false, 2, " ");
-        // Testing with values: [1.0, false, false, 2, null]
-        obj.classify(1.0f, false, false, 2, "null");
-        // Testing with values: [1.0, false, false, 2, bumblebee]
-        obj.classify(1.0f, false, false, 2, "bumblebee");
-        // Testing with values: [1.0, false, false, 3, ]
-        obj.classify(1.0f, false, false, 3, "");
-        // Testing with values: [1.0, false, false, 3,  ]
-        obj.classify(1.0f, false, false, 3, " ");
-        // Testing with values: [1.0, false, false, 3, null]
-        obj.classify(1.0f, false, false, 3, "null");
-        // Testing with values: [1.0, false, false, 3, bumblebee]
-        obj.classify(1.0f, false, false, 3, "bumblebee");
-        // Testing with values: [-1.0, true, true, 0, ]
-        obj.classify(-1.0f, true, true, 0, "");
-        // Testing with values: [-1.0, true, true, 0,  ]
-        obj.classify(-1.0f, true, true, 0, " ");
-        // Testing with values: [-1.0, true, true, 0, null]
-        obj.classify(-1.0f, true, true, 0, "null");
-        // Testing with values: [-1.0, true, true, 0, bumblebee]
-        obj.classify(-1.0f, true, true, 0, "bumblebee");
-        // Testing with values: [-1.0, true, true, 1, ]
-        obj.classify(-1.0f, true, true, 1, "");
-        // Testing with values: [-1.0, true, true, 1,  ]
-        obj.classify(-1.0f, true, true, 1, " ");
-        // Testing with values: [-1.0, true, true, 1, null]
-        obj.classify(-1.0f, true, true, 1, "null");
-        // Testing with values: [-1.0, true, true, 1, bumblebee]
-        obj.classify(-1.0f, true, true, 1, "bumblebee");
-        // Testing with values: [-1.0, true, true, -1, ]
-        obj.classify(-1.0f, true, true, -1, "");
-        // Testing with values: [-1.0, true, true, -1,  ]
-        obj.classify(-1.0f, true, true, -1, " ");
-        // Testing with values: [-1.0, true, true, -1, null]
-        obj.classify(-1.0f, true, true, -1, "null");
-        // Testing with values: [-1.0, true, true, -1, bumblebee]
-        obj.classify(-1.0f, true, true, -1, "bumblebee");
-        // Testing with values: [-1.0, true, true, 10, ]
-        obj.classify(-1.0f, true, true, 10, "");
-        // Testing with values: [-1.0, true, true, 10,  ]
-        obj.classify(-1.0f, true, true, 10, " ");
-        // Testing with values: [-1.0, true, true, 10, null]
-        obj.classify(-1.0f, true, true, 10, "null");
-        // Testing with values: [-1.0, true, true, 10, bumblebee]
-        obj.classify(-1.0f, true, true, 10, "bumblebee");
-        // Testing with values: [-1.0, true, true, 11, ]
-        obj.classify(-1.0f, true, true, 11, "");
-        // Testing with values: [-1.0, true, true, 11,  ]
-        obj.classify(-1.0f, true, true, 11, " ");
-        // Testing with values: [-1.0, true, true, 11, null]
-        obj.classify(-1.0f, true, true, 11, "null");
-        // Testing with values: [-1.0, true, true, 11, bumblebee]
-        obj.classify(-1.0f, true, true, 11, "bumblebee");
-        // Testing with values: [-1.0, true, true, 20, ]
-        obj.classify(-1.0f, true, true, 20, "");
-        // Testing with values: [-1.0, true, true, 20,  ]
-        obj.classify(-1.0f, true, true, 20, " ");
-        // Testing with values: [-1.0, true, true, 20, null]
-        obj.classify(-1.0f, true, true, 20, "null");
-        // Testing with values: [-1.0, true, true, 20, bumblebee]
-        obj.classify(-1.0f, true, true, 20, "bumblebee");
-        // Testing with values: [-1.0, true, true, 21, ]
-        obj.classify(-1.0f, true, true, 21, "");
-        // Testing with values: [-1.0, true, true, 21,  ]
-        obj.classify(-1.0f, true, true, 21, " ");
-        // Testing with values: [-1.0, true, true, 21, null]
-        obj.classify(-1.0f, true, true, 21, "null");
-        // Testing with values: [-1.0, true, true, 21, bumblebee]
-        obj.classify(-1.0f, true, true, 21, "bumblebee");
-        // Testing with values: [-1.0, true, true, 2, ]
-        obj.classify(-1.0f, true, true, 2, "");
-        // Testing with values: [-1.0, true, true, 2,  ]
-        obj.classify(-1.0f, true, true, 2, " ");
-        // Testing with values: [-1.0, true, true, 2, null]
-        obj.classify(-1.0f, true, true, 2, "null");
-        // Testing with values: [-1.0, true, true, 2, bumblebee]
-        obj.classify(-1.0f, true, true, 2, "bumblebee");
-        // Testing with values: [-1.0, true, true, 3, ]
-        obj.classify(-1.0f, true, true, 3, "");
-        // Testing with values: [-1.0, true, true, 3,  ]
-        obj.classify(-1.0f, true, true, 3, " ");
-        // Testing with values: [-1.0, true, true, 3, null]
-        obj.classify(-1.0f, true, true, 3, "null");
-        // Testing with values: [-1.0, true, true, 3, bumblebee]
-        obj.classify(-1.0f, true, true, 3, "bumblebee");
-        // Testing with values: [-1.0, true, false, 0, ]
-        obj.classify(-1.0f, true, false, 0, "");
-        // Testing with values: [-1.0, true, false, 0,  ]
-        obj.classify(-1.0f, true, false, 0, " ");
-        // Testing with values: [-1.0, true, false, 0, null]
-        obj.classify(-1.0f, true, false, 0, "null");
-        // Testing with values: [-1.0, true, false, 0, bumblebee]
-        obj.classify(-1.0f, true, false, 0, "bumblebee");
-        // Testing with values: [-1.0, true, false, 1, ]
-        obj.classify(-1.0f, true, false, 1, "");
-        // Testing with values: [-1.0, true, false, 1,  ]
-        obj.classify(-1.0f, true, false, 1, " ");
-        // Testing with values: [-1.0, true, false, 1, null]
-        obj.classify(-1.0f, true, false, 1, "null");
-        // Testing with values: [-1.0, true, false, 1, bumblebee]
-        obj.classify(-1.0f, true, false, 1, "bumblebee");
-        // Testing with values: [-1.0, true, false, -1, ]
-        obj.classify(-1.0f, true, false, -1, "");
-        // Testing with values: [-1.0, true, false, -1,  ]
-        obj.classify(-1.0f, true, false, -1, " ");
-        // Testing with values: [-1.0, true, false, -1, null]
-        obj.classify(-1.0f, true, false, -1, "null");
-        // Testing with values: [-1.0, true, false, -1, bumblebee]
-        obj.classify(-1.0f, true, false, -1, "bumblebee");
-        // Testing with values: [-1.0, true, false, 10, ]
-        obj.classify(-1.0f, true, false, 10, "");
-        // Testing with values: [-1.0, true, false, 10,  ]
-        obj.classify(-1.0f, true, false, 10, " ");
-        // Testing with values: [-1.0, true, false, 10, null]
-        obj.classify(-1.0f, true, false, 10, "null");
-        // Testing with values: [-1.0, true, false, 10, bumblebee]
-        obj.classify(-1.0f, true, false, 10, "bumblebee");
-        // Testing with values: [-1.0, true, false, 11, ]
-        obj.classify(-1.0f, true, false, 11, "");
-        // Testing with values: [-1.0, true, false, 11,  ]
-        obj.classify(-1.0f, true, false, 11, " ");
-        // Testing with values: [-1.0, true, false, 11, null]
-        obj.classify(-1.0f, true, false, 11, "null");
-        // Testing with values: [-1.0, true, false, 11, bumblebee]
-        obj.classify(-1.0f, true, false, 11, "bumblebee");
-        // Testing with values: [-1.0, true, false, 20, ]
-        obj.classify(-1.0f, true, false, 20, "");
-        // Testing with values: [-1.0, true, false, 20,  ]
-        obj.classify(-1.0f, true, false, 20, " ");
-        // Testing with values: [-1.0, true, false, 20, null]
-        obj.classify(-1.0f, true, false, 20, "null");
-        // Testing with values: [-1.0, true, false, 20, bumblebee]
-        obj.classify(-1.0f, true, false, 20, "bumblebee");
-        // Testing with values: [-1.0, true, false, 21, ]
-        obj.classify(-1.0f, true, false, 21, "");
-        // Testing with values: [-1.0, true, false, 21,  ]
-        obj.classify(-1.0f, true, false, 21, " ");
-        // Testing with values: [-1.0, true, false, 21, null]
-        obj.classify(-1.0f, true, false, 21, "null");
-        // Testing with values: [-1.0, true, false, 21, bumblebee]
-        obj.classify(-1.0f, true, false, 21, "bumblebee");
-        // Testing with values: [-1.0, true, false, 2, ]
-        obj.classify(-1.0f, true, false, 2, "");
-        // Testing with values: [-1.0, true, false, 2,  ]
-        obj.classify(-1.0f, true, false, 2, " ");
-        // Testing with values: [-1.0, true, false, 2, null]
-        obj.classify(-1.0f, true, false, 2, "null");
-        // Testing with values: [-1.0, true, false, 2, bumblebee]
-        obj.classify(-1.0f, true, false, 2, "bumblebee");
-        // Testing with values: [-1.0, true, false, 3, ]
-        obj.classify(-1.0f, true, false, 3, "");
-        // Testing with values: [-1.0, true, false, 3,  ]
-        obj.classify(-1.0f, true, false, 3, " ");
-        // Testing with values: [-1.0, true, false, 3, null]
-        obj.classify(-1.0f, true, false, 3, "null");
-        // Testing with values: [-1.0, true, false, 3, bumblebee]
-        obj.classify(-1.0f, true, false, 3, "bumblebee");
-        // Testing with values: [-1.0, false, true, 0, ]
-        obj.classify(-1.0f, false, true, 0, "");
-        // Testing with values: [-1.0, false, true, 0,  ]
-        obj.classify(-1.0f, false, true, 0, " ");
-        // Testing with values: [-1.0, false, true, 0, null]
-        obj.classify(-1.0f, false, true, 0, "null");
-        // Testing with values: [-1.0, false, true, 0, bumblebee]
-        obj.classify(-1.0f, false, true, 0, "bumblebee");
-        // Testing with values: [-1.0, false, true, 1, ]
-        obj.classify(-1.0f, false, true, 1, "");
-        // Testing with values: [-1.0, false, true, 1,  ]
-        obj.classify(-1.0f, false, true, 1, " ");
-        // Testing with values: [-1.0, false, true, 1, null]
-        obj.classify(-1.0f, false, true, 1, "null");
-        // Testing with values: [-1.0, false, true, 1, bumblebee]
-        obj.classify(-1.0f, false, true, 1, "bumblebee");
-        // Testing with values: [-1.0, false, true, -1, ]
-        obj.classify(-1.0f, false, true, -1, "");
-        // Testing with values: [-1.0, false, true, -1,  ]
-        obj.classify(-1.0f, false, true, -1, " ");
-        // Testing with values: [-1.0, false, true, -1, null]
-        obj.classify(-1.0f, false, true, -1, "null");
-        // Testing with values: [-1.0, false, true, -1, bumblebee]
-        obj.classify(-1.0f, false, true, -1, "bumblebee");
-        // Testing with values: [-1.0, false, true, 10, ]
-        obj.classify(-1.0f, false, true, 10, "");
-        // Testing with values: [-1.0, false, true, 10,  ]
-        obj.classify(-1.0f, false, true, 10, " ");
-        // Testing with values: [-1.0, false, true, 10, null]
-        obj.classify(-1.0f, false, true, 10, "null");
-        // Testing with values: [-1.0, false, true, 10, bumblebee]
-        obj.classify(-1.0f, false, true, 10, "bumblebee");
-        // Testing with values: [-1.0, false, true, 11, ]
-        obj.classify(-1.0f, false, true, 11, "");
-        // Testing with values: [-1.0, false, true, 11,  ]
-        obj.classify(-1.0f, false, true, 11, " ");
-        // Testing with values: [-1.0, false, true, 11, null]
-        obj.classify(-1.0f, false, true, 11, "null");
-        // Testing with values: [-1.0, false, true, 11, bumblebee]
-        obj.classify(-1.0f, false, true, 11, "bumblebee");
-        // Testing with values: [-1.0, false, true, 20, ]
-        obj.classify(-1.0f, false, true, 20, "");
-        // Testing with values: [-1.0, false, true, 20,  ]
-        obj.classify(-1.0f, false, true, 20, " ");
-        // Testing with values: [-1.0, false, true, 20, null]
-        obj.classify(-1.0f, false, true, 20, "null");
-        // Testing with values: [-1.0, false, true, 20, bumblebee]
-        obj.classify(-1.0f, false, true, 20, "bumblebee");
-        // Testing with values: [-1.0, false, true, 21, ]
-        obj.classify(-1.0f, false, true, 21, "");
-        // Testing with values: [-1.0, false, true, 21,  ]
-        obj.classify(-1.0f, false, true, 21, " ");
-        // Testing with values: [-1.0, false, true, 21, null]
-        obj.classify(-1.0f, false, true, 21, "null");
-        // Testing with values: [-1.0, false, true, 21, bumblebee]
-        obj.classify(-1.0f, false, true, 21, "bumblebee");
-        // Testing with values: [-1.0, false, true, 2, ]
-        obj.classify(-1.0f, false, true, 2, "");
-        // Testing with values: [-1.0, false, true, 2,  ]
-        obj.classify(-1.0f, false, true, 2, " ");
-        // Testing with values: [-1.0, false, true, 2, null]
-        obj.classify(-1.0f, false, true, 2, "null");
-        // Testing with values: [-1.0, false, true, 2, bumblebee]
-        obj.classify(-1.0f, false, true, 2, "bumblebee");
-        // Testing with values: [-1.0, false, true, 3, ]
-        obj.classify(-1.0f, false, true, 3, "");
-        // Testing with values: [-1.0, false, true, 3,  ]
-        obj.classify(-1.0f, false, true, 3, " ");
-        // Testing with values: [-1.0, false, true, 3, null]
-        obj.classify(-1.0f, false, true, 3, "null");
-        // Testing with values: [-1.0, false, true, 3, bumblebee]
-        obj.classify(-1.0f, false, true, 3, "bumblebee");
-        // Testing with values: [-1.0, false, false, 0, ]
-        obj.classify(-1.0f, false, false, 0, "");
-        // Testing with values: [-1.0, false, false, 0,  ]
-        obj.classify(-1.0f, false, false, 0, " ");
-        // Testing with values: [-1.0, false, false, 0, null]
-        obj.classify(-1.0f, false, false, 0, "null");
-        // Testing with values: [-1.0, false, false, 0, bumblebee]
-        obj.classify(-1.0f, false, false, 0, "bumblebee");
-        // Testing with values: [-1.0, false, false, 1, ]
-        obj.classify(-1.0f, false, false, 1, "");
-        // Testing with values: [-1.0, false, false, 1,  ]
-        obj.classify(-1.0f, false, false, 1, " ");
-        // Testing with values: [-1.0, false, false, 1, null]
-        obj.classify(-1.0f, false, false, 1, "null");
-        // Testing with values: [-1.0, false, false, 1, bumblebee]
-        obj.classify(-1.0f, false, false, 1, "bumblebee");
-        // Testing with values: [-1.0, false, false, -1, ]
-        obj.classify(-1.0f, false, false, -1, "");
-        // Testing with values: [-1.0, false, false, -1,  ]
-        obj.classify(-1.0f, false, false, -1, " ");
-        // Testing with values: [-1.0, false, false, -1, null]
-        obj.classify(-1.0f, false, false, -1, "null");
-        // Testing with values: [-1.0, false, false, -1, bumblebee]
-        obj.classify(-1.0f, false, false, -1, "bumblebee");
-        // Testing with values: [-1.0, false, false, 10, ]
-        obj.classify(-1.0f, false, false, 10, "");
-        // Testing with values: [-1.0, false, false, 10,  ]
-        obj.classify(-1.0f, false, false, 10, " ");
-        // Testing with values: [-1.0, false, false, 10, null]
-        obj.classify(-1.0f, false, false, 10, "null");
-        // Testing with values: [-1.0, false, false, 10, bumblebee]
-        obj.classify(-1.0f, false, false, 10, "bumblebee");
-        // Testing with values: [-1.0, false, false, 11, ]
-        obj.classify(-1.0f, false, false, 11, "");
-        // Testing with values: [-1.0, false, false, 11,  ]
-        obj.classify(-1.0f, false, false, 11, " ");
-        // Testing with values: [-1.0, false, false, 11, null]
-        obj.classify(-1.0f, false, false, 11, "null");
-        // Testing with values: [-1.0, false, false, 11, bumblebee]
-        obj.classify(-1.0f, false, false, 11, "bumblebee");
-        // Testing with values: [-1.0, false, false, 20, ]
-        obj.classify(-1.0f, false, false, 20, "");
-        // Testing with values: [-1.0, false, false, 20,  ]
-        obj.classify(-1.0f, false, false, 20, " ");
-        // Testing with values: [-1.0, false, false, 20, null]
-        obj.classify(-1.0f, false, false, 20, "null");
-        // Testing with values: [-1.0, false, false, 20, bumblebee]
-        obj.classify(-1.0f, false, false, 20, "bumblebee");
-        // Testing with values: [-1.0, false, false, 21, ]
-        obj.classify(-1.0f, false, false, 21, "");
-        // Testing with values: [-1.0, false, false, 21,  ]
-        obj.classify(-1.0f, false, false, 21, " ");
-        // Testing with values: [-1.0, false, false, 21, null]
-        obj.classify(-1.0f, false, false, 21, "null");
-        // Testing with values: [-1.0, false, false, 21, bumblebee]
-        obj.classify(-1.0f, false, false, 21, "bumblebee");
-        // Testing with values: [-1.0, false, false, 2, ]
-        obj.classify(-1.0f, false, false, 2, "");
-        // Testing with values: [-1.0, false, false, 2,  ]
-        obj.classify(-1.0f, false, false, 2, " ");
-        // Testing with values: [-1.0, false, false, 2, null]
-        obj.classify(-1.0f, false, false, 2, "null");
-        // Testing with values: [-1.0, false, false, 2, bumblebee]
-        obj.classify(-1.0f, false, false, 2, "bumblebee");
-        // Testing with values: [-1.0, false, false, 3, ]
-        obj.classify(-1.0f, false, false, 3, "");
-        // Testing with values: [-1.0, false, false, 3,  ]
-        obj.classify(-1.0f, false, false, 3, " ");
-        // Testing with values: [-1.0, false, false, 3, null]
-        obj.classify(-1.0f, false, false, 3, "null");
-        // Testing with values: [-1.0, false, false, 3, bumblebee]
-        obj.classify(-1.0f, false, false, 3, "bumblebee");
+        // Testing with values: [0.0, true, 0, 0, ]
+        obj.classify(0.0f, true, 0, 0, "");
+        // Testing with values: [0.0, true, 0, 0,  ]
+        obj.classify(0.0f, true, 0, 0, " ");
+        // Testing with values: [0.0, true, 0, 0, Bumblebee]
+        obj.classify(0.0f, true, 0, 0, "Bumblebee");
+        // Testing with values: [0.0, true, 0, 1, ]
+        obj.classify(0.0f, true, 0, 1, "");
+        // Testing with values: [0.0, true, 0, 1,  ]
+        obj.classify(0.0f, true, 0, 1, " ");
+        // Testing with values: [0.0, true, 0, 1, Bumblebee]
+        obj.classify(0.0f, true, 0, 1, "Bumblebee");
+        // Testing with values: [0.0, true, 0, -1, ]
+        obj.classify(0.0f, true, 0, -1, "");
+        // Testing with values: [0.0, true, 0, -1,  ]
+        obj.classify(0.0f, true, 0, -1, " ");
+        // Testing with values: [0.0, true, 0, -1, Bumblebee]
+        obj.classify(0.0f, true, 0, -1, "Bumblebee");
+        // Testing with values: [0.0, true, 0, 8, ]
+        obj.classify(0.0f, true, 0, 8, "");
+        // Testing with values: [0.0, true, 0, 8,  ]
+        obj.classify(0.0f, true, 0, 8, " ");
+        // Testing with values: [0.0, true, 0, 8, Bumblebee]
+        obj.classify(0.0f, true, 0, 8, "Bumblebee");
+        // Testing with values: [0.0, true, 0, 9, ]
+        obj.classify(0.0f, true, 0, 9, "");
+        // Testing with values: [0.0, true, 0, 9,  ]
+        obj.classify(0.0f, true, 0, 9, " ");
+        // Testing with values: [0.0, true, 0, 9, Bumblebee]
+        obj.classify(0.0f, true, 0, 9, "Bumblebee");
+        // Testing with values: [0.0, true, 0, 50, ]
+        obj.classify(0.0f, true, 0, 50, "");
+        // Testing with values: [0.0, true, 0, 50,  ]
+        obj.classify(0.0f, true, 0, 50, " ");
+        // Testing with values: [0.0, true, 0, 50, Bumblebee]
+        obj.classify(0.0f, true, 0, 50, "Bumblebee");
+        // Testing with values: [0.0, true, 0, -50, ]
+        obj.classify(0.0f, true, 0, -50, "");
+        // Testing with values: [0.0, true, 0, -50,  ]
+        obj.classify(0.0f, true, 0, -50, " ");
+        // Testing with values: [0.0, true, 0, -50, Bumblebee]
+        obj.classify(0.0f, true, 0, -50, "Bumblebee");
+        // Testing with values: [0.0, true, 0, 10, ]
+        obj.classify(0.0f, true, 0, 10, "");
+        // Testing with values: [0.0, true, 0, 10,  ]
+        obj.classify(0.0f, true, 0, 10, " ");
+        // Testing with values: [0.0, true, 0, 10, Bumblebee]
+        obj.classify(0.0f, true, 0, 10, "Bumblebee");
+        // Testing with values: [0.0, true, 1, 0, ]
+        obj.classify(0.0f, true, 1, 0, "");
+        // Testing with values: [0.0, true, 1, 0,  ]
+        obj.classify(0.0f, true, 1, 0, " ");
+        // Testing with values: [0.0, true, 1, 0, Bumblebee]
+        obj.classify(0.0f, true, 1, 0, "Bumblebee");
+        // Testing with values: [0.0, true, 1, 1, ]
+        obj.classify(0.0f, true, 1, 1, "");
+        // Testing with values: [0.0, true, 1, 1,  ]
+        obj.classify(0.0f, true, 1, 1, " ");
+        // Testing with values: [0.0, true, 1, 1, Bumblebee]
+        obj.classify(0.0f, true, 1, 1, "Bumblebee");
+        // Testing with values: [0.0, true, 1, -1, ]
+        obj.classify(0.0f, true, 1, -1, "");
+        // Testing with values: [0.0, true, 1, -1,  ]
+        obj.classify(0.0f, true, 1, -1, " ");
+        // Testing with values: [0.0, true, 1, -1, Bumblebee]
+        obj.classify(0.0f, true, 1, -1, "Bumblebee");
+        // Testing with values: [0.0, true, 1, 8, ]
+        obj.classify(0.0f, true, 1, 8, "");
+        // Testing with values: [0.0, true, 1, 8,  ]
+        obj.classify(0.0f, true, 1, 8, " ");
+        // Testing with values: [0.0, true, 1, 8, Bumblebee]
+        obj.classify(0.0f, true, 1, 8, "Bumblebee");
+        // Testing with values: [0.0, true, 1, 9, ]
+        obj.classify(0.0f, true, 1, 9, "");
+        // Testing with values: [0.0, true, 1, 9,  ]
+        obj.classify(0.0f, true, 1, 9, " ");
+        // Testing with values: [0.0, true, 1, 9, Bumblebee]
+        obj.classify(0.0f, true, 1, 9, "Bumblebee");
+        // Testing with values: [0.0, true, 1, 50, ]
+        obj.classify(0.0f, true, 1, 50, "");
+        // Testing with values: [0.0, true, 1, 50,  ]
+        obj.classify(0.0f, true, 1, 50, " ");
+        // Testing with values: [0.0, true, 1, 50, Bumblebee]
+        obj.classify(0.0f, true, 1, 50, "Bumblebee");
+        // Testing with values: [0.0, true, 1, -50, ]
+        obj.classify(0.0f, true, 1, -50, "");
+        // Testing with values: [0.0, true, 1, -50,  ]
+        obj.classify(0.0f, true, 1, -50, " ");
+        // Testing with values: [0.0, true, 1, -50, Bumblebee]
+        obj.classify(0.0f, true, 1, -50, "Bumblebee");
+        // Testing with values: [0.0, true, 1, 10, ]
+        obj.classify(0.0f, true, 1, 10, "");
+        // Testing with values: [0.0, true, 1, 10,  ]
+        obj.classify(0.0f, true, 1, 10, " ");
+        // Testing with values: [0.0, true, 1, 10, Bumblebee]
+        obj.classify(0.0f, true, 1, 10, "Bumblebee");
+        // Testing with values: [0.0, true, -1, 0, ]
+        obj.classify(0.0f, true, -1, 0, "");
+        // Testing with values: [0.0, true, -1, 0,  ]
+        obj.classify(0.0f, true, -1, 0, " ");
+        // Testing with values: [0.0, true, -1, 0, Bumblebee]
+        obj.classify(0.0f, true, -1, 0, "Bumblebee");
+        // Testing with values: [0.0, true, -1, 1, ]
+        obj.classify(0.0f, true, -1, 1, "");
+        // Testing with values: [0.0, true, -1, 1,  ]
+        obj.classify(0.0f, true, -1, 1, " ");
+        // Testing with values: [0.0, true, -1, 1, Bumblebee]
+        obj.classify(0.0f, true, -1, 1, "Bumblebee");
+        // Testing with values: [0.0, true, -1, -1, ]
+        obj.classify(0.0f, true, -1, -1, "");
+        // Testing with values: [0.0, true, -1, -1,  ]
+        obj.classify(0.0f, true, -1, -1, " ");
+        // Testing with values: [0.0, true, -1, -1, Bumblebee]
+        obj.classify(0.0f, true, -1, -1, "Bumblebee");
+        // Testing with values: [0.0, true, -1, 8, ]
+        obj.classify(0.0f, true, -1, 8, "");
+        // Testing with values: [0.0, true, -1, 8,  ]
+        obj.classify(0.0f, true, -1, 8, " ");
+        // Testing with values: [0.0, true, -1, 8, Bumblebee]
+        obj.classify(0.0f, true, -1, 8, "Bumblebee");
+        // Testing with values: [0.0, true, -1, 9, ]
+        obj.classify(0.0f, true, -1, 9, "");
+        // Testing with values: [0.0, true, -1, 9,  ]
+        obj.classify(0.0f, true, -1, 9, " ");
+        // Testing with values: [0.0, true, -1, 9, Bumblebee]
+        obj.classify(0.0f, true, -1, 9, "Bumblebee");
+        // Testing with values: [0.0, true, -1, 50, ]
+        obj.classify(0.0f, true, -1, 50, "");
+        // Testing with values: [0.0, true, -1, 50,  ]
+        obj.classify(0.0f, true, -1, 50, " ");
+        // Testing with values: [0.0, true, -1, 50, Bumblebee]
+        obj.classify(0.0f, true, -1, 50, "Bumblebee");
+        // Testing with values: [0.0, true, -1, -50, ]
+        obj.classify(0.0f, true, -1, -50, "");
+        // Testing with values: [0.0, true, -1, -50,  ]
+        obj.classify(0.0f, true, -1, -50, " ");
+        // Testing with values: [0.0, true, -1, -50, Bumblebee]
+        obj.classify(0.0f, true, -1, -50, "Bumblebee");
+        // Testing with values: [0.0, true, -1, 10, ]
+        obj.classify(0.0f, true, -1, 10, "");
+        // Testing with values: [0.0, true, -1, 10,  ]
+        obj.classify(0.0f, true, -1, 10, " ");
+        // Testing with values: [0.0, true, -1, 10, Bumblebee]
+        obj.classify(0.0f, true, -1, 10, "Bumblebee");
+        // Testing with values: [0.0, true, 2, 0, ]
+        obj.classify(0.0f, true, 2, 0, "");
+        // Testing with values: [0.0, true, 2, 0,  ]
+        obj.classify(0.0f, true, 2, 0, " ");
+        // Testing with values: [0.0, true, 2, 0, Bumblebee]
+        obj.classify(0.0f, true, 2, 0, "Bumblebee");
+        // Testing with values: [0.0, true, 2, 1, ]
+        obj.classify(0.0f, true, 2, 1, "");
+        // Testing with values: [0.0, true, 2, 1,  ]
+        obj.classify(0.0f, true, 2, 1, " ");
+        // Testing with values: [0.0, true, 2, 1, Bumblebee]
+        obj.classify(0.0f, true, 2, 1, "Bumblebee");
+        // Testing with values: [0.0, true, 2, -1, ]
+        obj.classify(0.0f, true, 2, -1, "");
+        // Testing with values: [0.0, true, 2, -1,  ]
+        obj.classify(0.0f, true, 2, -1, " ");
+        // Testing with values: [0.0, true, 2, -1, Bumblebee]
+        obj.classify(0.0f, true, 2, -1, "Bumblebee");
+        // Testing with values: [0.0, true, 2, 8, ]
+        obj.classify(0.0f, true, 2, 8, "");
+        // Testing with values: [0.0, true, 2, 8,  ]
+        obj.classify(0.0f, true, 2, 8, " ");
+        // Testing with values: [0.0, true, 2, 8, Bumblebee]
+        obj.classify(0.0f, true, 2, 8, "Bumblebee");
+        // Testing with values: [0.0, true, 2, 9, ]
+        obj.classify(0.0f, true, 2, 9, "");
+        // Testing with values: [0.0, true, 2, 9,  ]
+        obj.classify(0.0f, true, 2, 9, " ");
+        // Testing with values: [0.0, true, 2, 9, Bumblebee]
+        obj.classify(0.0f, true, 2, 9, "Bumblebee");
+        // Testing with values: [0.0, true, 2, 50, ]
+        obj.classify(0.0f, true, 2, 50, "");
+        // Testing with values: [0.0, true, 2, 50,  ]
+        obj.classify(0.0f, true, 2, 50, " ");
+        // Testing with values: [0.0, true, 2, 50, Bumblebee]
+        obj.classify(0.0f, true, 2, 50, "Bumblebee");
+        // Testing with values: [0.0, true, 2, -50, ]
+        obj.classify(0.0f, true, 2, -50, "");
+        // Testing with values: [0.0, true, 2, -50,  ]
+        obj.classify(0.0f, true, 2, -50, " ");
+        // Testing with values: [0.0, true, 2, -50, Bumblebee]
+        obj.classify(0.0f, true, 2, -50, "Bumblebee");
+        // Testing with values: [0.0, true, 2, 10, ]
+        obj.classify(0.0f, true, 2, 10, "");
+        // Testing with values: [0.0, true, 2, 10,  ]
+        obj.classify(0.0f, true, 2, 10, " ");
+        // Testing with values: [0.0, true, 2, 10, Bumblebee]
+        obj.classify(0.0f, true, 2, 10, "Bumblebee");
+        // Testing with values: [0.0, true, 3, 0, ]
+        obj.classify(0.0f, true, 3, 0, "");
+        // Testing with values: [0.0, true, 3, 0,  ]
+        obj.classify(0.0f, true, 3, 0, " ");
+        // Testing with values: [0.0, true, 3, 0, Bumblebee]
+        obj.classify(0.0f, true, 3, 0, "Bumblebee");
+        // Testing with values: [0.0, true, 3, 1, ]
+        obj.classify(0.0f, true, 3, 1, "");
+        // Testing with values: [0.0, true, 3, 1,  ]
+        obj.classify(0.0f, true, 3, 1, " ");
+        // Testing with values: [0.0, true, 3, 1, Bumblebee]
+        obj.classify(0.0f, true, 3, 1, "Bumblebee");
+        // Testing with values: [0.0, true, 3, -1, ]
+        obj.classify(0.0f, true, 3, -1, "");
+        // Testing with values: [0.0, true, 3, -1,  ]
+        obj.classify(0.0f, true, 3, -1, " ");
+        // Testing with values: [0.0, true, 3, -1, Bumblebee]
+        obj.classify(0.0f, true, 3, -1, "Bumblebee");
+        // Testing with values: [0.0, true, 3, 8, ]
+        obj.classify(0.0f, true, 3, 8, "");
+        // Testing with values: [0.0, true, 3, 8,  ]
+        obj.classify(0.0f, true, 3, 8, " ");
+        // Testing with values: [0.0, true, 3, 8, Bumblebee]
+        obj.classify(0.0f, true, 3, 8, "Bumblebee");
+        // Testing with values: [0.0, true, 3, 9, ]
+        obj.classify(0.0f, true, 3, 9, "");
+        // Testing with values: [0.0, true, 3, 9,  ]
+        obj.classify(0.0f, true, 3, 9, " ");
+        // Testing with values: [0.0, true, 3, 9, Bumblebee]
+        obj.classify(0.0f, true, 3, 9, "Bumblebee");
+        // Testing with values: [0.0, true, 3, 50, ]
+        obj.classify(0.0f, true, 3, 50, "");
+        // Testing with values: [0.0, true, 3, 50,  ]
+        obj.classify(0.0f, true, 3, 50, " ");
+        // Testing with values: [0.0, true, 3, 50, Bumblebee]
+        obj.classify(0.0f, true, 3, 50, "Bumblebee");
+        // Testing with values: [0.0, true, 3, -50, ]
+        obj.classify(0.0f, true, 3, -50, "");
+        // Testing with values: [0.0, true, 3, -50,  ]
+        obj.classify(0.0f, true, 3, -50, " ");
+        // Testing with values: [0.0, true, 3, -50, Bumblebee]
+        obj.classify(0.0f, true, 3, -50, "Bumblebee");
+        // Testing with values: [0.0, true, 3, 10, ]
+        obj.classify(0.0f, true, 3, 10, "");
+        // Testing with values: [0.0, true, 3, 10,  ]
+        obj.classify(0.0f, true, 3, 10, " ");
+        // Testing with values: [0.0, true, 3, 10, Bumblebee]
+        obj.classify(0.0f, true, 3, 10, "Bumblebee");
+        // Testing with values: [0.0, false, 0, 0, ]
+        obj.classify(0.0f, false, 0, 0, "");
+        // Testing with values: [0.0, false, 0, 0,  ]
+        obj.classify(0.0f, false, 0, 0, " ");
+        // Testing with values: [0.0, false, 0, 0, Bumblebee]
+        obj.classify(0.0f, false, 0, 0, "Bumblebee");
+        // Testing with values: [0.0, false, 0, 1, ]
+        obj.classify(0.0f, false, 0, 1, "");
+        // Testing with values: [0.0, false, 0, 1,  ]
+        obj.classify(0.0f, false, 0, 1, " ");
+        // Testing with values: [0.0, false, 0, 1, Bumblebee]
+        obj.classify(0.0f, false, 0, 1, "Bumblebee");
+        // Testing with values: [0.0, false, 0, -1, ]
+        obj.classify(0.0f, false, 0, -1, "");
+        // Testing with values: [0.0, false, 0, -1,  ]
+        obj.classify(0.0f, false, 0, -1, " ");
+        // Testing with values: [0.0, false, 0, -1, Bumblebee]
+        obj.classify(0.0f, false, 0, -1, "Bumblebee");
+        // Testing with values: [0.0, false, 0, 8, ]
+        obj.classify(0.0f, false, 0, 8, "");
+        // Testing with values: [0.0, false, 0, 8,  ]
+        obj.classify(0.0f, false, 0, 8, " ");
+        // Testing with values: [0.0, false, 0, 8, Bumblebee]
+        obj.classify(0.0f, false, 0, 8, "Bumblebee");
+        // Testing with values: [0.0, false, 0, 9, ]
+        obj.classify(0.0f, false, 0, 9, "");
+        // Testing with values: [0.0, false, 0, 9,  ]
+        obj.classify(0.0f, false, 0, 9, " ");
+        // Testing with values: [0.0, false, 0, 9, Bumblebee]
+        obj.classify(0.0f, false, 0, 9, "Bumblebee");
+        // Testing with values: [0.0, false, 0, 50, ]
+        obj.classify(0.0f, false, 0, 50, "");
+        // Testing with values: [0.0, false, 0, 50,  ]
+        obj.classify(0.0f, false, 0, 50, " ");
+        // Testing with values: [0.0, false, 0, 50, Bumblebee]
+        obj.classify(0.0f, false, 0, 50, "Bumblebee");
+        // Testing with values: [0.0, false, 0, -50, ]
+        obj.classify(0.0f, false, 0, -50, "");
+        // Testing with values: [0.0, false, 0, -50,  ]
+        obj.classify(0.0f, false, 0, -50, " ");
+        // Testing with values: [0.0, false, 0, -50, Bumblebee]
+        obj.classify(0.0f, false, 0, -50, "Bumblebee");
+        // Testing with values: [0.0, false, 0, 10, ]
+        obj.classify(0.0f, false, 0, 10, "");
+        // Testing with values: [0.0, false, 0, 10,  ]
+        obj.classify(0.0f, false, 0, 10, " ");
+        // Testing with values: [0.0, false, 0, 10, Bumblebee]
+        obj.classify(0.0f, false, 0, 10, "Bumblebee");
+        // Testing with values: [0.0, false, 1, 0, ]
+        obj.classify(0.0f, false, 1, 0, "");
+        // Testing with values: [0.0, false, 1, 0,  ]
+        obj.classify(0.0f, false, 1, 0, " ");
+        // Testing with values: [0.0, false, 1, 0, Bumblebee]
+        obj.classify(0.0f, false, 1, 0, "Bumblebee");
+        // Testing with values: [0.0, false, 1, 1, ]
+        obj.classify(0.0f, false, 1, 1, "");
+        // Testing with values: [0.0, false, 1, 1,  ]
+        obj.classify(0.0f, false, 1, 1, " ");
+        // Testing with values: [0.0, false, 1, 1, Bumblebee]
+        obj.classify(0.0f, false, 1, 1, "Bumblebee");
+        // Testing with values: [0.0, false, 1, -1, ]
+        obj.classify(0.0f, false, 1, -1, "");
+        // Testing with values: [0.0, false, 1, -1,  ]
+        obj.classify(0.0f, false, 1, -1, " ");
+        // Testing with values: [0.0, false, 1, -1, Bumblebee]
+        obj.classify(0.0f, false, 1, -1, "Bumblebee");
+        // Testing with values: [0.0, false, 1, 8, ]
+        obj.classify(0.0f, false, 1, 8, "");
+        // Testing with values: [0.0, false, 1, 8,  ]
+        obj.classify(0.0f, false, 1, 8, " ");
+        // Testing with values: [0.0, false, 1, 8, Bumblebee]
+        obj.classify(0.0f, false, 1, 8, "Bumblebee");
+        // Testing with values: [0.0, false, 1, 9, ]
+        obj.classify(0.0f, false, 1, 9, "");
+        // Testing with values: [0.0, false, 1, 9,  ]
+        obj.classify(0.0f, false, 1, 9, " ");
+        // Testing with values: [0.0, false, 1, 9, Bumblebee]
+        obj.classify(0.0f, false, 1, 9, "Bumblebee");
+        // Testing with values: [0.0, false, 1, 50, ]
+        obj.classify(0.0f, false, 1, 50, "");
+        // Testing with values: [0.0, false, 1, 50,  ]
+        obj.classify(0.0f, false, 1, 50, " ");
+        // Testing with values: [0.0, false, 1, 50, Bumblebee]
+        obj.classify(0.0f, false, 1, 50, "Bumblebee");
+        // Testing with values: [0.0, false, 1, -50, ]
+        obj.classify(0.0f, false, 1, -50, "");
+        // Testing with values: [0.0, false, 1, -50,  ]
+        obj.classify(0.0f, false, 1, -50, " ");
+        // Testing with values: [0.0, false, 1, -50, Bumblebee]
+        obj.classify(0.0f, false, 1, -50, "Bumblebee");
+        // Testing with values: [0.0, false, 1, 10, ]
+        obj.classify(0.0f, false, 1, 10, "");
+        // Testing with values: [0.0, false, 1, 10,  ]
+        obj.classify(0.0f, false, 1, 10, " ");
+        // Testing with values: [0.0, false, 1, 10, Bumblebee]
+        obj.classify(0.0f, false, 1, 10, "Bumblebee");
+        // Testing with values: [0.0, false, -1, 0, ]
+        obj.classify(0.0f, false, -1, 0, "");
+        // Testing with values: [0.0, false, -1, 0,  ]
+        obj.classify(0.0f, false, -1, 0, " ");
+        // Testing with values: [0.0, false, -1, 0, Bumblebee]
+        obj.classify(0.0f, false, -1, 0, "Bumblebee");
+        // Testing with values: [0.0, false, -1, 1, ]
+        obj.classify(0.0f, false, -1, 1, "");
+        // Testing with values: [0.0, false, -1, 1,  ]
+        obj.classify(0.0f, false, -1, 1, " ");
+        // Testing with values: [0.0, false, -1, 1, Bumblebee]
+        obj.classify(0.0f, false, -1, 1, "Bumblebee");
+        // Testing with values: [0.0, false, -1, -1, ]
+        obj.classify(0.0f, false, -1, -1, "");
+        // Testing with values: [0.0, false, -1, -1,  ]
+        obj.classify(0.0f, false, -1, -1, " ");
+        // Testing with values: [0.0, false, -1, -1, Bumblebee]
+        obj.classify(0.0f, false, -1, -1, "Bumblebee");
+        // Testing with values: [0.0, false, -1, 8, ]
+        obj.classify(0.0f, false, -1, 8, "");
+        // Testing with values: [0.0, false, -1, 8,  ]
+        obj.classify(0.0f, false, -1, 8, " ");
+        // Testing with values: [0.0, false, -1, 8, Bumblebee]
+        obj.classify(0.0f, false, -1, 8, "Bumblebee");
+        // Testing with values: [0.0, false, -1, 9, ]
+        obj.classify(0.0f, false, -1, 9, "");
+        // Testing with values: [0.0, false, -1, 9,  ]
+        obj.classify(0.0f, false, -1, 9, " ");
+        // Testing with values: [0.0, false, -1, 9, Bumblebee]
+        obj.classify(0.0f, false, -1, 9, "Bumblebee");
+        // Testing with values: [0.0, false, -1, 50, ]
+        obj.classify(0.0f, false, -1, 50, "");
+        // Testing with values: [0.0, false, -1, 50,  ]
+        obj.classify(0.0f, false, -1, 50, " ");
+        // Testing with values: [0.0, false, -1, 50, Bumblebee]
+        obj.classify(0.0f, false, -1, 50, "Bumblebee");
+        // Testing with values: [0.0, false, -1, -50, ]
+        obj.classify(0.0f, false, -1, -50, "");
+        // Testing with values: [0.0, false, -1, -50,  ]
+        obj.classify(0.0f, false, -1, -50, " ");
+        // Testing with values: [0.0, false, -1, -50, Bumblebee]
+        obj.classify(0.0f, false, -1, -50, "Bumblebee");
+        // Testing with values: [0.0, false, -1, 10, ]
+        obj.classify(0.0f, false, -1, 10, "");
+        // Testing with values: [0.0, false, -1, 10,  ]
+        obj.classify(0.0f, false, -1, 10, " ");
+        // Testing with values: [0.0, false, -1, 10, Bumblebee]
+        obj.classify(0.0f, false, -1, 10, "Bumblebee");
+        // Testing with values: [0.0, false, 2, 0, ]
+        obj.classify(0.0f, false, 2, 0, "");
+        // Testing with values: [0.0, false, 2, 0,  ]
+        obj.classify(0.0f, false, 2, 0, " ");
+        // Testing with values: [0.0, false, 2, 0, Bumblebee]
+        obj.classify(0.0f, false, 2, 0, "Bumblebee");
+        // Testing with values: [0.0, false, 2, 1, ]
+        obj.classify(0.0f, false, 2, 1, "");
+        // Testing with values: [0.0, false, 2, 1,  ]
+        obj.classify(0.0f, false, 2, 1, " ");
+        // Testing with values: [0.0, false, 2, 1, Bumblebee]
+        obj.classify(0.0f, false, 2, 1, "Bumblebee");
+        // Testing with values: [0.0, false, 2, -1, ]
+        obj.classify(0.0f, false, 2, -1, "");
+        // Testing with values: [0.0, false, 2, -1,  ]
+        obj.classify(0.0f, false, 2, -1, " ");
+        // Testing with values: [0.0, false, 2, -1, Bumblebee]
+        obj.classify(0.0f, false, 2, -1, "Bumblebee");
+        // Testing with values: [0.0, false, 2, 8, ]
+        obj.classify(0.0f, false, 2, 8, "");
+        // Testing with values: [0.0, false, 2, 8,  ]
+        obj.classify(0.0f, false, 2, 8, " ");
+        // Testing with values: [0.0, false, 2, 8, Bumblebee]
+        obj.classify(0.0f, false, 2, 8, "Bumblebee");
+        // Testing with values: [0.0, false, 2, 9, ]
+        obj.classify(0.0f, false, 2, 9, "");
+        // Testing with values: [0.0, false, 2, 9,  ]
+        obj.classify(0.0f, false, 2, 9, " ");
+        // Testing with values: [0.0, false, 2, 9, Bumblebee]
+        obj.classify(0.0f, false, 2, 9, "Bumblebee");
+        // Testing with values: [0.0, false, 2, 50, ]
+        obj.classify(0.0f, false, 2, 50, "");
+        // Testing with values: [0.0, false, 2, 50,  ]
+        obj.classify(0.0f, false, 2, 50, " ");
+        // Testing with values: [0.0, false, 2, 50, Bumblebee]
+        obj.classify(0.0f, false, 2, 50, "Bumblebee");
+        // Testing with values: [0.0, false, 2, -50, ]
+        obj.classify(0.0f, false, 2, -50, "");
+        // Testing with values: [0.0, false, 2, -50,  ]
+        obj.classify(0.0f, false, 2, -50, " ");
+        // Testing with values: [0.0, false, 2, -50, Bumblebee]
+        obj.classify(0.0f, false, 2, -50, "Bumblebee");
+        // Testing with values: [0.0, false, 2, 10, ]
+        obj.classify(0.0f, false, 2, 10, "");
+        // Testing with values: [0.0, false, 2, 10,  ]
+        obj.classify(0.0f, false, 2, 10, " ");
+        // Testing with values: [0.0, false, 2, 10, Bumblebee]
+        obj.classify(0.0f, false, 2, 10, "Bumblebee");
+        // Testing with values: [0.0, false, 3, 0, ]
+        obj.classify(0.0f, false, 3, 0, "");
+        // Testing with values: [0.0, false, 3, 0,  ]
+        obj.classify(0.0f, false, 3, 0, " ");
+        // Testing with values: [0.0, false, 3, 0, Bumblebee]
+        obj.classify(0.0f, false, 3, 0, "Bumblebee");
+        // Testing with values: [0.0, false, 3, 1, ]
+        obj.classify(0.0f, false, 3, 1, "");
+        // Testing with values: [0.0, false, 3, 1,  ]
+        obj.classify(0.0f, false, 3, 1, " ");
+        // Testing with values: [0.0, false, 3, 1, Bumblebee]
+        obj.classify(0.0f, false, 3, 1, "Bumblebee");
+        // Testing with values: [0.0, false, 3, -1, ]
+        obj.classify(0.0f, false, 3, -1, "");
+        // Testing with values: [0.0, false, 3, -1,  ]
+        obj.classify(0.0f, false, 3, -1, " ");
+        // Testing with values: [0.0, false, 3, -1, Bumblebee]
+        obj.classify(0.0f, false, 3, -1, "Bumblebee");
+        // Testing with values: [0.0, false, 3, 8, ]
+        obj.classify(0.0f, false, 3, 8, "");
+        // Testing with values: [0.0, false, 3, 8,  ]
+        obj.classify(0.0f, false, 3, 8, " ");
+        // Testing with values: [0.0, false, 3, 8, Bumblebee]
+        obj.classify(0.0f, false, 3, 8, "Bumblebee");
+        // Testing with values: [0.0, false, 3, 9, ]
+        obj.classify(0.0f, false, 3, 9, "");
+        // Testing with values: [0.0, false, 3, 9,  ]
+        obj.classify(0.0f, false, 3, 9, " ");
+        // Testing with values: [0.0, false, 3, 9, Bumblebee]
+        obj.classify(0.0f, false, 3, 9, "Bumblebee");
+        // Testing with values: [0.0, false, 3, 50, ]
+        obj.classify(0.0f, false, 3, 50, "");
+        // Testing with values: [0.0, false, 3, 50,  ]
+        obj.classify(0.0f, false, 3, 50, " ");
+        // Testing with values: [0.0, false, 3, 50, Bumblebee]
+        obj.classify(0.0f, false, 3, 50, "Bumblebee");
+        // Testing with values: [0.0, false, 3, -50, ]
+        obj.classify(0.0f, false, 3, -50, "");
+        // Testing with values: [0.0, false, 3, -50,  ]
+        obj.classify(0.0f, false, 3, -50, " ");
+        // Testing with values: [0.0, false, 3, -50, Bumblebee]
+        obj.classify(0.0f, false, 3, -50, "Bumblebee");
+        // Testing with values: [0.0, false, 3, 10, ]
+        obj.classify(0.0f, false, 3, 10, "");
+        // Testing with values: [0.0, false, 3, 10,  ]
+        obj.classify(0.0f, false, 3, 10, " ");
+        // Testing with values: [0.0, false, 3, 10, Bumblebee]
+        obj.classify(0.0f, false, 3, 10, "Bumblebee");
+        // Testing with values: [1.0, true, 0, 0, ]
+        obj.classify(1.0f, true, 0, 0, "");
+        // Testing with values: [1.0, true, 0, 0,  ]
+        obj.classify(1.0f, true, 0, 0, " ");
+        // Testing with values: [1.0, true, 0, 0, Bumblebee]
+        obj.classify(1.0f, true, 0, 0, "Bumblebee");
+        // Testing with values: [1.0, true, 0, 1, ]
+        obj.classify(1.0f, true, 0, 1, "");
+        // Testing with values: [1.0, true, 0, 1,  ]
+        obj.classify(1.0f, true, 0, 1, " ");
+        // Testing with values: [1.0, true, 0, 1, Bumblebee]
+        obj.classify(1.0f, true, 0, 1, "Bumblebee");
+        // Testing with values: [1.0, true, 0, -1, ]
+        obj.classify(1.0f, true, 0, -1, "");
+        // Testing with values: [1.0, true, 0, -1,  ]
+        obj.classify(1.0f, true, 0, -1, " ");
+        // Testing with values: [1.0, true, 0, -1, Bumblebee]
+        obj.classify(1.0f, true, 0, -1, "Bumblebee");
+        // Testing with values: [1.0, true, 0, 8, ]
+        obj.classify(1.0f, true, 0, 8, "");
+        // Testing with values: [1.0, true, 0, 8,  ]
+        obj.classify(1.0f, true, 0, 8, " ");
+        // Testing with values: [1.0, true, 0, 8, Bumblebee]
+        obj.classify(1.0f, true, 0, 8, "Bumblebee");
+        // Testing with values: [1.0, true, 0, 9, ]
+        obj.classify(1.0f, true, 0, 9, "");
+        // Testing with values: [1.0, true, 0, 9,  ]
+        obj.classify(1.0f, true, 0, 9, " ");
+        // Testing with values: [1.0, true, 0, 9, Bumblebee]
+        obj.classify(1.0f, true, 0, 9, "Bumblebee");
+        // Testing with values: [1.0, true, 0, 50, ]
+        obj.classify(1.0f, true, 0, 50, "");
+        // Testing with values: [1.0, true, 0, 50,  ]
+        obj.classify(1.0f, true, 0, 50, " ");
+        // Testing with values: [1.0, true, 0, 50, Bumblebee]
+        obj.classify(1.0f, true, 0, 50, "Bumblebee");
+        // Testing with values: [1.0, true, 0, -50, ]
+        obj.classify(1.0f, true, 0, -50, "");
+        // Testing with values: [1.0, true, 0, -50,  ]
+        obj.classify(1.0f, true, 0, -50, " ");
+        // Testing with values: [1.0, true, 0, -50, Bumblebee]
+        obj.classify(1.0f, true, 0, -50, "Bumblebee");
+        // Testing with values: [1.0, true, 0, 10, ]
+        obj.classify(1.0f, true, 0, 10, "");
+        // Testing with values: [1.0, true, 0, 10,  ]
+        obj.classify(1.0f, true, 0, 10, " ");
+        // Testing with values: [1.0, true, 0, 10, Bumblebee]
+        obj.classify(1.0f, true, 0, 10, "Bumblebee");
+        // Testing with values: [1.0, true, 1, 0, ]
+        obj.classify(1.0f, true, 1, 0, "");
+        // Testing with values: [1.0, true, 1, 0,  ]
+        obj.classify(1.0f, true, 1, 0, " ");
+        // Testing with values: [1.0, true, 1, 0, Bumblebee]
+        obj.classify(1.0f, true, 1, 0, "Bumblebee");
+        // Testing with values: [1.0, true, 1, 1, ]
+        obj.classify(1.0f, true, 1, 1, "");
+        // Testing with values: [1.0, true, 1, 1,  ]
+        obj.classify(1.0f, true, 1, 1, " ");
+        // Testing with values: [1.0, true, 1, 1, Bumblebee]
+        obj.classify(1.0f, true, 1, 1, "Bumblebee");
+        // Testing with values: [1.0, true, 1, -1, ]
+        obj.classify(1.0f, true, 1, -1, "");
+        // Testing with values: [1.0, true, 1, -1,  ]
+        obj.classify(1.0f, true, 1, -1, " ");
+        // Testing with values: [1.0, true, 1, -1, Bumblebee]
+        obj.classify(1.0f, true, 1, -1, "Bumblebee");
+        // Testing with values: [1.0, true, 1, 8, ]
+        obj.classify(1.0f, true, 1, 8, "");
+        // Testing with values: [1.0, true, 1, 8,  ]
+        obj.classify(1.0f, true, 1, 8, " ");
+        // Testing with values: [1.0, true, 1, 8, Bumblebee]
+        obj.classify(1.0f, true, 1, 8, "Bumblebee");
+        // Testing with values: [1.0, true, 1, 9, ]
+        obj.classify(1.0f, true, 1, 9, "");
+        // Testing with values: [1.0, true, 1, 9,  ]
+        obj.classify(1.0f, true, 1, 9, " ");
+        // Testing with values: [1.0, true, 1, 9, Bumblebee]
+        obj.classify(1.0f, true, 1, 9, "Bumblebee");
+        // Testing with values: [1.0, true, 1, 50, ]
+        obj.classify(1.0f, true, 1, 50, "");
+        // Testing with values: [1.0, true, 1, 50,  ]
+        obj.classify(1.0f, true, 1, 50, " ");
+        // Testing with values: [1.0, true, 1, 50, Bumblebee]
+        obj.classify(1.0f, true, 1, 50, "Bumblebee");
+        // Testing with values: [1.0, true, 1, -50, ]
+        obj.classify(1.0f, true, 1, -50, "");
+        // Testing with values: [1.0, true, 1, -50,  ]
+        obj.classify(1.0f, true, 1, -50, " ");
+        // Testing with values: [1.0, true, 1, -50, Bumblebee]
+        obj.classify(1.0f, true, 1, -50, "Bumblebee");
+        // Testing with values: [1.0, true, 1, 10, ]
+        obj.classify(1.0f, true, 1, 10, "");
+        // Testing with values: [1.0, true, 1, 10,  ]
+        obj.classify(1.0f, true, 1, 10, " ");
+        // Testing with values: [1.0, true, 1, 10, Bumblebee]
+        obj.classify(1.0f, true, 1, 10, "Bumblebee");
+        // Testing with values: [1.0, true, -1, 0, ]
+        obj.classify(1.0f, true, -1, 0, "");
+        // Testing with values: [1.0, true, -1, 0,  ]
+        obj.classify(1.0f, true, -1, 0, " ");
+        // Testing with values: [1.0, true, -1, 0, Bumblebee]
+        obj.classify(1.0f, true, -1, 0, "Bumblebee");
+        // Testing with values: [1.0, true, -1, 1, ]
+        obj.classify(1.0f, true, -1, 1, "");
+        // Testing with values: [1.0, true, -1, 1,  ]
+        obj.classify(1.0f, true, -1, 1, " ");
+        // Testing with values: [1.0, true, -1, 1, Bumblebee]
+        obj.classify(1.0f, true, -1, 1, "Bumblebee");
+        // Testing with values: [1.0, true, -1, -1, ]
+        obj.classify(1.0f, true, -1, -1, "");
+        // Testing with values: [1.0, true, -1, -1,  ]
+        obj.classify(1.0f, true, -1, -1, " ");
+        // Testing with values: [1.0, true, -1, -1, Bumblebee]
+        obj.classify(1.0f, true, -1, -1, "Bumblebee");
+        // Testing with values: [1.0, true, -1, 8, ]
+        obj.classify(1.0f, true, -1, 8, "");
+        // Testing with values: [1.0, true, -1, 8,  ]
+        obj.classify(1.0f, true, -1, 8, " ");
+        // Testing with values: [1.0, true, -1, 8, Bumblebee]
+        obj.classify(1.0f, true, -1, 8, "Bumblebee");
+        // Testing with values: [1.0, true, -1, 9, ]
+        obj.classify(1.0f, true, -1, 9, "");
+        // Testing with values: [1.0, true, -1, 9,  ]
+        obj.classify(1.0f, true, -1, 9, " ");
+        // Testing with values: [1.0, true, -1, 9, Bumblebee]
+        obj.classify(1.0f, true, -1, 9, "Bumblebee");
+        // Testing with values: [1.0, true, -1, 50, ]
+        obj.classify(1.0f, true, -1, 50, "");
+        // Testing with values: [1.0, true, -1, 50,  ]
+        obj.classify(1.0f, true, -1, 50, " ");
+        // Testing with values: [1.0, true, -1, 50, Bumblebee]
+        obj.classify(1.0f, true, -1, 50, "Bumblebee");
+        // Testing with values: [1.0, true, -1, -50, ]
+        obj.classify(1.0f, true, -1, -50, "");
+        // Testing with values: [1.0, true, -1, -50,  ]
+        obj.classify(1.0f, true, -1, -50, " ");
+        // Testing with values: [1.0, true, -1, -50, Bumblebee]
+        obj.classify(1.0f, true, -1, -50, "Bumblebee");
+        // Testing with values: [1.0, true, -1, 10, ]
+        obj.classify(1.0f, true, -1, 10, "");
+        // Testing with values: [1.0, true, -1, 10,  ]
+        obj.classify(1.0f, true, -1, 10, " ");
+        // Testing with values: [1.0, true, -1, 10, Bumblebee]
+        obj.classify(1.0f, true, -1, 10, "Bumblebee");
+        // Testing with values: [1.0, true, 2, 0, ]
+        obj.classify(1.0f, true, 2, 0, "");
+        // Testing with values: [1.0, true, 2, 0,  ]
+        obj.classify(1.0f, true, 2, 0, " ");
+        // Testing with values: [1.0, true, 2, 0, Bumblebee]
+        obj.classify(1.0f, true, 2, 0, "Bumblebee");
+        // Testing with values: [1.0, true, 2, 1, ]
+        obj.classify(1.0f, true, 2, 1, "");
+        // Testing with values: [1.0, true, 2, 1,  ]
+        obj.classify(1.0f, true, 2, 1, " ");
+        // Testing with values: [1.0, true, 2, 1, Bumblebee]
+        obj.classify(1.0f, true, 2, 1, "Bumblebee");
+        // Testing with values: [1.0, true, 2, -1, ]
+        obj.classify(1.0f, true, 2, -1, "");
+        // Testing with values: [1.0, true, 2, -1,  ]
+        obj.classify(1.0f, true, 2, -1, " ");
+        // Testing with values: [1.0, true, 2, -1, Bumblebee]
+        obj.classify(1.0f, true, 2, -1, "Bumblebee");
+        // Testing with values: [1.0, true, 2, 8, ]
+        obj.classify(1.0f, true, 2, 8, "");
+        // Testing with values: [1.0, true, 2, 8,  ]
+        obj.classify(1.0f, true, 2, 8, " ");
+        // Testing with values: [1.0, true, 2, 8, Bumblebee]
+        obj.classify(1.0f, true, 2, 8, "Bumblebee");
+        // Testing with values: [1.0, true, 2, 9, ]
+        obj.classify(1.0f, true, 2, 9, "");
+        // Testing with values: [1.0, true, 2, 9,  ]
+        obj.classify(1.0f, true, 2, 9, " ");
+        // Testing with values: [1.0, true, 2, 9, Bumblebee]
+        obj.classify(1.0f, true, 2, 9, "Bumblebee");
+        // Testing with values: [1.0, true, 2, 50, ]
+        obj.classify(1.0f, true, 2, 50, "");
+        // Testing with values: [1.0, true, 2, 50,  ]
+        obj.classify(1.0f, true, 2, 50, " ");
+        // Testing with values: [1.0, true, 2, 50, Bumblebee]
+        obj.classify(1.0f, true, 2, 50, "Bumblebee");
+        // Testing with values: [1.0, true, 2, -50, ]
+        obj.classify(1.0f, true, 2, -50, "");
+        // Testing with values: [1.0, true, 2, -50,  ]
+        obj.classify(1.0f, true, 2, -50, " ");
+        // Testing with values: [1.0, true, 2, -50, Bumblebee]
+        obj.classify(1.0f, true, 2, -50, "Bumblebee");
+        // Testing with values: [1.0, true, 2, 10, ]
+        obj.classify(1.0f, true, 2, 10, "");
+        // Testing with values: [1.0, true, 2, 10,  ]
+        obj.classify(1.0f, true, 2, 10, " ");
+        // Testing with values: [1.0, true, 2, 10, Bumblebee]
+        obj.classify(1.0f, true, 2, 10, "Bumblebee");
+        // Testing with values: [1.0, true, 3, 0, ]
+        obj.classify(1.0f, true, 3, 0, "");
+        // Testing with values: [1.0, true, 3, 0,  ]
+        obj.classify(1.0f, true, 3, 0, " ");
+        // Testing with values: [1.0, true, 3, 0, Bumblebee]
+        obj.classify(1.0f, true, 3, 0, "Bumblebee");
+        // Testing with values: [1.0, true, 3, 1, ]
+        obj.classify(1.0f, true, 3, 1, "");
+        // Testing with values: [1.0, true, 3, 1,  ]
+        obj.classify(1.0f, true, 3, 1, " ");
+        // Testing with values: [1.0, true, 3, 1, Bumblebee]
+        obj.classify(1.0f, true, 3, 1, "Bumblebee");
+        // Testing with values: [1.0, true, 3, -1, ]
+        obj.classify(1.0f, true, 3, -1, "");
+        // Testing with values: [1.0, true, 3, -1,  ]
+        obj.classify(1.0f, true, 3, -1, " ");
+        // Testing with values: [1.0, true, 3, -1, Bumblebee]
+        obj.classify(1.0f, true, 3, -1, "Bumblebee");
+        // Testing with values: [1.0, true, 3, 8, ]
+        obj.classify(1.0f, true, 3, 8, "");
+        // Testing with values: [1.0, true, 3, 8,  ]
+        obj.classify(1.0f, true, 3, 8, " ");
+        // Testing with values: [1.0, true, 3, 8, Bumblebee]
+        obj.classify(1.0f, true, 3, 8, "Bumblebee");
+        // Testing with values: [1.0, true, 3, 9, ]
+        obj.classify(1.0f, true, 3, 9, "");
+        // Testing with values: [1.0, true, 3, 9,  ]
+        obj.classify(1.0f, true, 3, 9, " ");
+        // Testing with values: [1.0, true, 3, 9, Bumblebee]
+        obj.classify(1.0f, true, 3, 9, "Bumblebee");
+        // Testing with values: [1.0, true, 3, 50, ]
+        obj.classify(1.0f, true, 3, 50, "");
+        // Testing with values: [1.0, true, 3, 50,  ]
+        obj.classify(1.0f, true, 3, 50, " ");
+        // Testing with values: [1.0, true, 3, 50, Bumblebee]
+        obj.classify(1.0f, true, 3, 50, "Bumblebee");
+        // Testing with values: [1.0, true, 3, -50, ]
+        obj.classify(1.0f, true, 3, -50, "");
+        // Testing with values: [1.0, true, 3, -50,  ]
+        obj.classify(1.0f, true, 3, -50, " ");
+        // Testing with values: [1.0, true, 3, -50, Bumblebee]
+        obj.classify(1.0f, true, 3, -50, "Bumblebee");
+        // Testing with values: [1.0, true, 3, 10, ]
+        obj.classify(1.0f, true, 3, 10, "");
+        // Testing with values: [1.0, true, 3, 10,  ]
+        obj.classify(1.0f, true, 3, 10, " ");
+        // Testing with values: [1.0, true, 3, 10, Bumblebee]
+        obj.classify(1.0f, true, 3, 10, "Bumblebee");
+        // Testing with values: [1.0, false, 0, 0, ]
+        obj.classify(1.0f, false, 0, 0, "");
+        // Testing with values: [1.0, false, 0, 0,  ]
+        obj.classify(1.0f, false, 0, 0, " ");
+        // Testing with values: [1.0, false, 0, 0, Bumblebee]
+        obj.classify(1.0f, false, 0, 0, "Bumblebee");
+        // Testing with values: [1.0, false, 0, 1, ]
+        obj.classify(1.0f, false, 0, 1, "");
+        // Testing with values: [1.0, false, 0, 1,  ]
+        obj.classify(1.0f, false, 0, 1, " ");
+        // Testing with values: [1.0, false, 0, 1, Bumblebee]
+        obj.classify(1.0f, false, 0, 1, "Bumblebee");
+        // Testing with values: [1.0, false, 0, -1, ]
+        obj.classify(1.0f, false, 0, -1, "");
+        // Testing with values: [1.0, false, 0, -1,  ]
+        obj.classify(1.0f, false, 0, -1, " ");
+        // Testing with values: [1.0, false, 0, -1, Bumblebee]
+        obj.classify(1.0f, false, 0, -1, "Bumblebee");
+        // Testing with values: [1.0, false, 0, 8, ]
+        obj.classify(1.0f, false, 0, 8, "");
+        // Testing with values: [1.0, false, 0, 8,  ]
+        obj.classify(1.0f, false, 0, 8, " ");
+        // Testing with values: [1.0, false, 0, 8, Bumblebee]
+        obj.classify(1.0f, false, 0, 8, "Bumblebee");
+        // Testing with values: [1.0, false, 0, 9, ]
+        obj.classify(1.0f, false, 0, 9, "");
+        // Testing with values: [1.0, false, 0, 9,  ]
+        obj.classify(1.0f, false, 0, 9, " ");
+        // Testing with values: [1.0, false, 0, 9, Bumblebee]
+        obj.classify(1.0f, false, 0, 9, "Bumblebee");
+        // Testing with values: [1.0, false, 0, 50, ]
+        obj.classify(1.0f, false, 0, 50, "");
+        // Testing with values: [1.0, false, 0, 50,  ]
+        obj.classify(1.0f, false, 0, 50, " ");
+        // Testing with values: [1.0, false, 0, 50, Bumblebee]
+        obj.classify(1.0f, false, 0, 50, "Bumblebee");
+        // Testing with values: [1.0, false, 0, -50, ]
+        obj.classify(1.0f, false, 0, -50, "");
+        // Testing with values: [1.0, false, 0, -50,  ]
+        obj.classify(1.0f, false, 0, -50, " ");
+        // Testing with values: [1.0, false, 0, -50, Bumblebee]
+        obj.classify(1.0f, false, 0, -50, "Bumblebee");
+        // Testing with values: [1.0, false, 0, 10, ]
+        obj.classify(1.0f, false, 0, 10, "");
+        // Testing with values: [1.0, false, 0, 10,  ]
+        obj.classify(1.0f, false, 0, 10, " ");
+        // Testing with values: [1.0, false, 0, 10, Bumblebee]
+        obj.classify(1.0f, false, 0, 10, "Bumblebee");
+        // Testing with values: [1.0, false, 1, 0, ]
+        obj.classify(1.0f, false, 1, 0, "");
+        // Testing with values: [1.0, false, 1, 0,  ]
+        obj.classify(1.0f, false, 1, 0, " ");
+        // Testing with values: [1.0, false, 1, 0, Bumblebee]
+        obj.classify(1.0f, false, 1, 0, "Bumblebee");
+        // Testing with values: [1.0, false, 1, 1, ]
+        obj.classify(1.0f, false, 1, 1, "");
+        // Testing with values: [1.0, false, 1, 1,  ]
+        obj.classify(1.0f, false, 1, 1, " ");
+        // Testing with values: [1.0, false, 1, 1, Bumblebee]
+        obj.classify(1.0f, false, 1, 1, "Bumblebee");
+        // Testing with values: [1.0, false, 1, -1, ]
+        obj.classify(1.0f, false, 1, -1, "");
+        // Testing with values: [1.0, false, 1, -1,  ]
+        obj.classify(1.0f, false, 1, -1, " ");
+        // Testing with values: [1.0, false, 1, -1, Bumblebee]
+        obj.classify(1.0f, false, 1, -1, "Bumblebee");
+        // Testing with values: [1.0, false, 1, 8, ]
+        obj.classify(1.0f, false, 1, 8, "");
+        // Testing with values: [1.0, false, 1, 8,  ]
+        obj.classify(1.0f, false, 1, 8, " ");
+        // Testing with values: [1.0, false, 1, 8, Bumblebee]
+        obj.classify(1.0f, false, 1, 8, "Bumblebee");
+        // Testing with values: [1.0, false, 1, 9, ]
+        obj.classify(1.0f, false, 1, 9, "");
+        // Testing with values: [1.0, false, 1, 9,  ]
+        obj.classify(1.0f, false, 1, 9, " ");
+        // Testing with values: [1.0, false, 1, 9, Bumblebee]
+        obj.classify(1.0f, false, 1, 9, "Bumblebee");
+        // Testing with values: [1.0, false, 1, 50, ]
+        obj.classify(1.0f, false, 1, 50, "");
+        // Testing with values: [1.0, false, 1, 50,  ]
+        obj.classify(1.0f, false, 1, 50, " ");
+        // Testing with values: [1.0, false, 1, 50, Bumblebee]
+        obj.classify(1.0f, false, 1, 50, "Bumblebee");
+        // Testing with values: [1.0, false, 1, -50, ]
+        obj.classify(1.0f, false, 1, -50, "");
+        // Testing with values: [1.0, false, 1, -50,  ]
+        obj.classify(1.0f, false, 1, -50, " ");
+        // Testing with values: [1.0, false, 1, -50, Bumblebee]
+        obj.classify(1.0f, false, 1, -50, "Bumblebee");
+        // Testing with values: [1.0, false, 1, 10, ]
+        obj.classify(1.0f, false, 1, 10, "");
+        // Testing with values: [1.0, false, 1, 10,  ]
+        obj.classify(1.0f, false, 1, 10, " ");
+        // Testing with values: [1.0, false, 1, 10, Bumblebee]
+        obj.classify(1.0f, false, 1, 10, "Bumblebee");
+        // Testing with values: [1.0, false, -1, 0, ]
+        obj.classify(1.0f, false, -1, 0, "");
+        // Testing with values: [1.0, false, -1, 0,  ]
+        obj.classify(1.0f, false, -1, 0, " ");
+        // Testing with values: [1.0, false, -1, 0, Bumblebee]
+        obj.classify(1.0f, false, -1, 0, "Bumblebee");
+        // Testing with values: [1.0, false, -1, 1, ]
+        obj.classify(1.0f, false, -1, 1, "");
+        // Testing with values: [1.0, false, -1, 1,  ]
+        obj.classify(1.0f, false, -1, 1, " ");
+        // Testing with values: [1.0, false, -1, 1, Bumblebee]
+        obj.classify(1.0f, false, -1, 1, "Bumblebee");
+        // Testing with values: [1.0, false, -1, -1, ]
+        obj.classify(1.0f, false, -1, -1, "");
+        // Testing with values: [1.0, false, -1, -1,  ]
+        obj.classify(1.0f, false, -1, -1, " ");
+        // Testing with values: [1.0, false, -1, -1, Bumblebee]
+        obj.classify(1.0f, false, -1, -1, "Bumblebee");
+        // Testing with values: [1.0, false, -1, 8, ]
+        obj.classify(1.0f, false, -1, 8, "");
+        // Testing with values: [1.0, false, -1, 8,  ]
+        obj.classify(1.0f, false, -1, 8, " ");
+        // Testing with values: [1.0, false, -1, 8, Bumblebee]
+        obj.classify(1.0f, false, -1, 8, "Bumblebee");
+        // Testing with values: [1.0, false, -1, 9, ]
+        obj.classify(1.0f, false, -1, 9, "");
+        // Testing with values: [1.0, false, -1, 9,  ]
+        obj.classify(1.0f, false, -1, 9, " ");
+        // Testing with values: [1.0, false, -1, 9, Bumblebee]
+        obj.classify(1.0f, false, -1, 9, "Bumblebee");
+        // Testing with values: [1.0, false, -1, 50, ]
+        obj.classify(1.0f, false, -1, 50, "");
+        // Testing with values: [1.0, false, -1, 50,  ]
+        obj.classify(1.0f, false, -1, 50, " ");
+        // Testing with values: [1.0, false, -1, 50, Bumblebee]
+        obj.classify(1.0f, false, -1, 50, "Bumblebee");
+        // Testing with values: [1.0, false, -1, -50, ]
+        obj.classify(1.0f, false, -1, -50, "");
+        // Testing with values: [1.0, false, -1, -50,  ]
+        obj.classify(1.0f, false, -1, -50, " ");
+        // Testing with values: [1.0, false, -1, -50, Bumblebee]
+        obj.classify(1.0f, false, -1, -50, "Bumblebee");
+        // Testing with values: [1.0, false, -1, 10, ]
+        obj.classify(1.0f, false, -1, 10, "");
+        // Testing with values: [1.0, false, -1, 10,  ]
+        obj.classify(1.0f, false, -1, 10, " ");
+        // Testing with values: [1.0, false, -1, 10, Bumblebee]
+        obj.classify(1.0f, false, -1, 10, "Bumblebee");
+        // Testing with values: [1.0, false, 2, 0, ]
+        obj.classify(1.0f, false, 2, 0, "");
+        // Testing with values: [1.0, false, 2, 0,  ]
+        obj.classify(1.0f, false, 2, 0, " ");
+        // Testing with values: [1.0, false, 2, 0, Bumblebee]
+        obj.classify(1.0f, false, 2, 0, "Bumblebee");
+        // Testing with values: [1.0, false, 2, 1, ]
+        obj.classify(1.0f, false, 2, 1, "");
+        // Testing with values: [1.0, false, 2, 1,  ]
+        obj.classify(1.0f, false, 2, 1, " ");
+        // Testing with values: [1.0, false, 2, 1, Bumblebee]
+        obj.classify(1.0f, false, 2, 1, "Bumblebee");
+        // Testing with values: [1.0, false, 2, -1, ]
+        obj.classify(1.0f, false, 2, -1, "");
+        // Testing with values: [1.0, false, 2, -1,  ]
+        obj.classify(1.0f, false, 2, -1, " ");
+        // Testing with values: [1.0, false, 2, -1, Bumblebee]
+        obj.classify(1.0f, false, 2, -1, "Bumblebee");
+        // Testing with values: [1.0, false, 2, 8, ]
+        obj.classify(1.0f, false, 2, 8, "");
+        // Testing with values: [1.0, false, 2, 8,  ]
+        obj.classify(1.0f, false, 2, 8, " ");
+        // Testing with values: [1.0, false, 2, 8, Bumblebee]
+        obj.classify(1.0f, false, 2, 8, "Bumblebee");
+        // Testing with values: [1.0, false, 2, 9, ]
+        obj.classify(1.0f, false, 2, 9, "");
+        // Testing with values: [1.0, false, 2, 9,  ]
+        obj.classify(1.0f, false, 2, 9, " ");
+        // Testing with values: [1.0, false, 2, 9, Bumblebee]
+        obj.classify(1.0f, false, 2, 9, "Bumblebee");
+        // Testing with values: [1.0, false, 2, 50, ]
+        obj.classify(1.0f, false, 2, 50, "");
+        // Testing with values: [1.0, false, 2, 50,  ]
+        obj.classify(1.0f, false, 2, 50, " ");
+        // Testing with values: [1.0, false, 2, 50, Bumblebee]
+        obj.classify(1.0f, false, 2, 50, "Bumblebee");
+        // Testing with values: [1.0, false, 2, -50, ]
+        obj.classify(1.0f, false, 2, -50, "");
+        // Testing with values: [1.0, false, 2, -50,  ]
+        obj.classify(1.0f, false, 2, -50, " ");
+        // Testing with values: [1.0, false, 2, -50, Bumblebee]
+        obj.classify(1.0f, false, 2, -50, "Bumblebee");
+        // Testing with values: [1.0, false, 2, 10, ]
+        obj.classify(1.0f, false, 2, 10, "");
+        // Testing with values: [1.0, false, 2, 10,  ]
+        obj.classify(1.0f, false, 2, 10, " ");
+        // Testing with values: [1.0, false, 2, 10, Bumblebee]
+        obj.classify(1.0f, false, 2, 10, "Bumblebee");
+        // Testing with values: [1.0, false, 3, 0, ]
+        obj.classify(1.0f, false, 3, 0, "");
+        // Testing with values: [1.0, false, 3, 0,  ]
+        obj.classify(1.0f, false, 3, 0, " ");
+        // Testing with values: [1.0, false, 3, 0, Bumblebee]
+        obj.classify(1.0f, false, 3, 0, "Bumblebee");
+        // Testing with values: [1.0, false, 3, 1, ]
+        obj.classify(1.0f, false, 3, 1, "");
+        // Testing with values: [1.0, false, 3, 1,  ]
+        obj.classify(1.0f, false, 3, 1, " ");
+        // Testing with values: [1.0, false, 3, 1, Bumblebee]
+        obj.classify(1.0f, false, 3, 1, "Bumblebee");
+        // Testing with values: [1.0, false, 3, -1, ]
+        obj.classify(1.0f, false, 3, -1, "");
+        // Testing with values: [1.0, false, 3, -1,  ]
+        obj.classify(1.0f, false, 3, -1, " ");
+        // Testing with values: [1.0, false, 3, -1, Bumblebee]
+        obj.classify(1.0f, false, 3, -1, "Bumblebee");
+        // Testing with values: [1.0, false, 3, 8, ]
+        obj.classify(1.0f, false, 3, 8, "");
+        // Testing with values: [1.0, false, 3, 8,  ]
+        obj.classify(1.0f, false, 3, 8, " ");
+        // Testing with values: [1.0, false, 3, 8, Bumblebee]
+        obj.classify(1.0f, false, 3, 8, "Bumblebee");
+        // Testing with values: [1.0, false, 3, 9, ]
+        obj.classify(1.0f, false, 3, 9, "");
+        // Testing with values: [1.0, false, 3, 9,  ]
+        obj.classify(1.0f, false, 3, 9, " ");
+        // Testing with values: [1.0, false, 3, 9, Bumblebee]
+        obj.classify(1.0f, false, 3, 9, "Bumblebee");
+        // Testing with values: [1.0, false, 3, 50, ]
+        obj.classify(1.0f, false, 3, 50, "");
+        // Testing with values: [1.0, false, 3, 50,  ]
+        obj.classify(1.0f, false, 3, 50, " ");
+        // Testing with values: [1.0, false, 3, 50, Bumblebee]
+        obj.classify(1.0f, false, 3, 50, "Bumblebee");
+        // Testing with values: [1.0, false, 3, -50, ]
+        obj.classify(1.0f, false, 3, -50, "");
+        // Testing with values: [1.0, false, 3, -50,  ]
+        obj.classify(1.0f, false, 3, -50, " ");
+        // Testing with values: [1.0, false, 3, -50, Bumblebee]
+        obj.classify(1.0f, false, 3, -50, "Bumblebee");
+        // Testing with values: [1.0, false, 3, 10, ]
+        obj.classify(1.0f, false, 3, 10, "");
+        // Testing with values: [1.0, false, 3, 10,  ]
+        obj.classify(1.0f, false, 3, 10, " ");
+        // Testing with values: [1.0, false, 3, 10, Bumblebee]
+        obj.classify(1.0f, false, 3, 10, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, 0, ]
+        obj.classify(-1.0f, true, 0, 0, "");
+        // Testing with values: [-1.0, true, 0, 0,  ]
+        obj.classify(-1.0f, true, 0, 0, " ");
+        // Testing with values: [-1.0, true, 0, 0, Bumblebee]
+        obj.classify(-1.0f, true, 0, 0, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, 1, ]
+        obj.classify(-1.0f, true, 0, 1, "");
+        // Testing with values: [-1.0, true, 0, 1,  ]
+        obj.classify(-1.0f, true, 0, 1, " ");
+        // Testing with values: [-1.0, true, 0, 1, Bumblebee]
+        obj.classify(-1.0f, true, 0, 1, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, -1, ]
+        obj.classify(-1.0f, true, 0, -1, "");
+        // Testing with values: [-1.0, true, 0, -1,  ]
+        obj.classify(-1.0f, true, 0, -1, " ");
+        // Testing with values: [-1.0, true, 0, -1, Bumblebee]
+        obj.classify(-1.0f, true, 0, -1, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, 8, ]
+        obj.classify(-1.0f, true, 0, 8, "");
+        // Testing with values: [-1.0, true, 0, 8,  ]
+        obj.classify(-1.0f, true, 0, 8, " ");
+        // Testing with values: [-1.0, true, 0, 8, Bumblebee]
+        obj.classify(-1.0f, true, 0, 8, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, 9, ]
+        obj.classify(-1.0f, true, 0, 9, "");
+        // Testing with values: [-1.0, true, 0, 9,  ]
+        obj.classify(-1.0f, true, 0, 9, " ");
+        // Testing with values: [-1.0, true, 0, 9, Bumblebee]
+        obj.classify(-1.0f, true, 0, 9, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, 50, ]
+        obj.classify(-1.0f, true, 0, 50, "");
+        // Testing with values: [-1.0, true, 0, 50,  ]
+        obj.classify(-1.0f, true, 0, 50, " ");
+        // Testing with values: [-1.0, true, 0, 50, Bumblebee]
+        obj.classify(-1.0f, true, 0, 50, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, -50, ]
+        obj.classify(-1.0f, true, 0, -50, "");
+        // Testing with values: [-1.0, true, 0, -50,  ]
+        obj.classify(-1.0f, true, 0, -50, " ");
+        // Testing with values: [-1.0, true, 0, -50, Bumblebee]
+        obj.classify(-1.0f, true, 0, -50, "Bumblebee");
+        // Testing with values: [-1.0, true, 0, 10, ]
+        obj.classify(-1.0f, true, 0, 10, "");
+        // Testing with values: [-1.0, true, 0, 10,  ]
+        obj.classify(-1.0f, true, 0, 10, " ");
+        // Testing with values: [-1.0, true, 0, 10, Bumblebee]
+        obj.classify(-1.0f, true, 0, 10, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, 0, ]
+        obj.classify(-1.0f, true, 1, 0, "");
+        // Testing with values: [-1.0, true, 1, 0,  ]
+        obj.classify(-1.0f, true, 1, 0, " ");
+        // Testing with values: [-1.0, true, 1, 0, Bumblebee]
+        obj.classify(-1.0f, true, 1, 0, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, 1, ]
+        obj.classify(-1.0f, true, 1, 1, "");
+        // Testing with values: [-1.0, true, 1, 1,  ]
+        obj.classify(-1.0f, true, 1, 1, " ");
+        // Testing with values: [-1.0, true, 1, 1, Bumblebee]
+        obj.classify(-1.0f, true, 1, 1, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, -1, ]
+        obj.classify(-1.0f, true, 1, -1, "");
+        // Testing with values: [-1.0, true, 1, -1,  ]
+        obj.classify(-1.0f, true, 1, -1, " ");
+        // Testing with values: [-1.0, true, 1, -1, Bumblebee]
+        obj.classify(-1.0f, true, 1, -1, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, 8, ]
+        obj.classify(-1.0f, true, 1, 8, "");
+        // Testing with values: [-1.0, true, 1, 8,  ]
+        obj.classify(-1.0f, true, 1, 8, " ");
+        // Testing with values: [-1.0, true, 1, 8, Bumblebee]
+        obj.classify(-1.0f, true, 1, 8, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, 9, ]
+        obj.classify(-1.0f, true, 1, 9, "");
+        // Testing with values: [-1.0, true, 1, 9,  ]
+        obj.classify(-1.0f, true, 1, 9, " ");
+        // Testing with values: [-1.0, true, 1, 9, Bumblebee]
+        obj.classify(-1.0f, true, 1, 9, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, 50, ]
+        obj.classify(-1.0f, true, 1, 50, "");
+        // Testing with values: [-1.0, true, 1, 50,  ]
+        obj.classify(-1.0f, true, 1, 50, " ");
+        // Testing with values: [-1.0, true, 1, 50, Bumblebee]
+        obj.classify(-1.0f, true, 1, 50, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, -50, ]
+        obj.classify(-1.0f, true, 1, -50, "");
+        // Testing with values: [-1.0, true, 1, -50,  ]
+        obj.classify(-1.0f, true, 1, -50, " ");
+        // Testing with values: [-1.0, true, 1, -50, Bumblebee]
+        obj.classify(-1.0f, true, 1, -50, "Bumblebee");
+        // Testing with values: [-1.0, true, 1, 10, ]
+        obj.classify(-1.0f, true, 1, 10, "");
+        // Testing with values: [-1.0, true, 1, 10,  ]
+        obj.classify(-1.0f, true, 1, 10, " ");
+        // Testing with values: [-1.0, true, 1, 10, Bumblebee]
+        obj.classify(-1.0f, true, 1, 10, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, 0, ]
+        obj.classify(-1.0f, true, -1, 0, "");
+        // Testing with values: [-1.0, true, -1, 0,  ]
+        obj.classify(-1.0f, true, -1, 0, " ");
+        // Testing with values: [-1.0, true, -1, 0, Bumblebee]
+        obj.classify(-1.0f, true, -1, 0, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, 1, ]
+        obj.classify(-1.0f, true, -1, 1, "");
+        // Testing with values: [-1.0, true, -1, 1,  ]
+        obj.classify(-1.0f, true, -1, 1, " ");
+        // Testing with values: [-1.0, true, -1, 1, Bumblebee]
+        obj.classify(-1.0f, true, -1, 1, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, -1, ]
+        obj.classify(-1.0f, true, -1, -1, "");
+        // Testing with values: [-1.0, true, -1, -1,  ]
+        obj.classify(-1.0f, true, -1, -1, " ");
+        // Testing with values: [-1.0, true, -1, -1, Bumblebee]
+        obj.classify(-1.0f, true, -1, -1, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, 8, ]
+        obj.classify(-1.0f, true, -1, 8, "");
+        // Testing with values: [-1.0, true, -1, 8,  ]
+        obj.classify(-1.0f, true, -1, 8, " ");
+        // Testing with values: [-1.0, true, -1, 8, Bumblebee]
+        obj.classify(-1.0f, true, -1, 8, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, 9, ]
+        obj.classify(-1.0f, true, -1, 9, "");
+        // Testing with values: [-1.0, true, -1, 9,  ]
+        obj.classify(-1.0f, true, -1, 9, " ");
+        // Testing with values: [-1.0, true, -1, 9, Bumblebee]
+        obj.classify(-1.0f, true, -1, 9, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, 50, ]
+        obj.classify(-1.0f, true, -1, 50, "");
+        // Testing with values: [-1.0, true, -1, 50,  ]
+        obj.classify(-1.0f, true, -1, 50, " ");
+        // Testing with values: [-1.0, true, -1, 50, Bumblebee]
+        obj.classify(-1.0f, true, -1, 50, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, -50, ]
+        obj.classify(-1.0f, true, -1, -50, "");
+        // Testing with values: [-1.0, true, -1, -50,  ]
+        obj.classify(-1.0f, true, -1, -50, " ");
+        // Testing with values: [-1.0, true, -1, -50, Bumblebee]
+        obj.classify(-1.0f, true, -1, -50, "Bumblebee");
+        // Testing with values: [-1.0, true, -1, 10, ]
+        obj.classify(-1.0f, true, -1, 10, "");
+        // Testing with values: [-1.0, true, -1, 10,  ]
+        obj.classify(-1.0f, true, -1, 10, " ");
+        // Testing with values: [-1.0, true, -1, 10, Bumblebee]
+        obj.classify(-1.0f, true, -1, 10, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, 0, ]
+        obj.classify(-1.0f, true, 2, 0, "");
+        // Testing with values: [-1.0, true, 2, 0,  ]
+        obj.classify(-1.0f, true, 2, 0, " ");
+        // Testing with values: [-1.0, true, 2, 0, Bumblebee]
+        obj.classify(-1.0f, true, 2, 0, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, 1, ]
+        obj.classify(-1.0f, true, 2, 1, "");
+        // Testing with values: [-1.0, true, 2, 1,  ]
+        obj.classify(-1.0f, true, 2, 1, " ");
+        // Testing with values: [-1.0, true, 2, 1, Bumblebee]
+        obj.classify(-1.0f, true, 2, 1, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, -1, ]
+        obj.classify(-1.0f, true, 2, -1, "");
+        // Testing with values: [-1.0, true, 2, -1,  ]
+        obj.classify(-1.0f, true, 2, -1, " ");
+        // Testing with values: [-1.0, true, 2, -1, Bumblebee]
+        obj.classify(-1.0f, true, 2, -1, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, 8, ]
+        obj.classify(-1.0f, true, 2, 8, "");
+        // Testing with values: [-1.0, true, 2, 8,  ]
+        obj.classify(-1.0f, true, 2, 8, " ");
+        // Testing with values: [-1.0, true, 2, 8, Bumblebee]
+        obj.classify(-1.0f, true, 2, 8, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, 9, ]
+        obj.classify(-1.0f, true, 2, 9, "");
+        // Testing with values: [-1.0, true, 2, 9,  ]
+        obj.classify(-1.0f, true, 2, 9, " ");
+        // Testing with values: [-1.0, true, 2, 9, Bumblebee]
+        obj.classify(-1.0f, true, 2, 9, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, 50, ]
+        obj.classify(-1.0f, true, 2, 50, "");
+        // Testing with values: [-1.0, true, 2, 50,  ]
+        obj.classify(-1.0f, true, 2, 50, " ");
+        // Testing with values: [-1.0, true, 2, 50, Bumblebee]
+        obj.classify(-1.0f, true, 2, 50, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, -50, ]
+        obj.classify(-1.0f, true, 2, -50, "");
+        // Testing with values: [-1.0, true, 2, -50,  ]
+        obj.classify(-1.0f, true, 2, -50, " ");
+        // Testing with values: [-1.0, true, 2, -50, Bumblebee]
+        obj.classify(-1.0f, true, 2, -50, "Bumblebee");
+        // Testing with values: [-1.0, true, 2, 10, ]
+        obj.classify(-1.0f, true, 2, 10, "");
+        // Testing with values: [-1.0, true, 2, 10,  ]
+        obj.classify(-1.0f, true, 2, 10, " ");
+        // Testing with values: [-1.0, true, 2, 10, Bumblebee]
+        obj.classify(-1.0f, true, 2, 10, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, 0, ]
+        obj.classify(-1.0f, true, 3, 0, "");
+        // Testing with values: [-1.0, true, 3, 0,  ]
+        obj.classify(-1.0f, true, 3, 0, " ");
+        // Testing with values: [-1.0, true, 3, 0, Bumblebee]
+        obj.classify(-1.0f, true, 3, 0, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, 1, ]
+        obj.classify(-1.0f, true, 3, 1, "");
+        // Testing with values: [-1.0, true, 3, 1,  ]
+        obj.classify(-1.0f, true, 3, 1, " ");
+        // Testing with values: [-1.0, true, 3, 1, Bumblebee]
+        obj.classify(-1.0f, true, 3, 1, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, -1, ]
+        obj.classify(-1.0f, true, 3, -1, "");
+        // Testing with values: [-1.0, true, 3, -1,  ]
+        obj.classify(-1.0f, true, 3, -1, " ");
+        // Testing with values: [-1.0, true, 3, -1, Bumblebee]
+        obj.classify(-1.0f, true, 3, -1, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, 8, ]
+        obj.classify(-1.0f, true, 3, 8, "");
+        // Testing with values: [-1.0, true, 3, 8,  ]
+        obj.classify(-1.0f, true, 3, 8, " ");
+        // Testing with values: [-1.0, true, 3, 8, Bumblebee]
+        obj.classify(-1.0f, true, 3, 8, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, 9, ]
+        obj.classify(-1.0f, true, 3, 9, "");
+        // Testing with values: [-1.0, true, 3, 9,  ]
+        obj.classify(-1.0f, true, 3, 9, " ");
+        // Testing with values: [-1.0, true, 3, 9, Bumblebee]
+        obj.classify(-1.0f, true, 3, 9, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, 50, ]
+        obj.classify(-1.0f, true, 3, 50, "");
+        // Testing with values: [-1.0, true, 3, 50,  ]
+        obj.classify(-1.0f, true, 3, 50, " ");
+        // Testing with values: [-1.0, true, 3, 50, Bumblebee]
+        obj.classify(-1.0f, true, 3, 50, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, -50, ]
+        obj.classify(-1.0f, true, 3, -50, "");
+        // Testing with values: [-1.0, true, 3, -50,  ]
+        obj.classify(-1.0f, true, 3, -50, " ");
+        // Testing with values: [-1.0, true, 3, -50, Bumblebee]
+        obj.classify(-1.0f, true, 3, -50, "Bumblebee");
+        // Testing with values: [-1.0, true, 3, 10, ]
+        obj.classify(-1.0f, true, 3, 10, "");
+        // Testing with values: [-1.0, true, 3, 10,  ]
+        obj.classify(-1.0f, true, 3, 10, " ");
+        // Testing with values: [-1.0, true, 3, 10, Bumblebee]
+        obj.classify(-1.0f, true, 3, 10, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, 0, ]
+        obj.classify(-1.0f, false, 0, 0, "");
+        // Testing with values: [-1.0, false, 0, 0,  ]
+        obj.classify(-1.0f, false, 0, 0, " ");
+        // Testing with values: [-1.0, false, 0, 0, Bumblebee]
+        obj.classify(-1.0f, false, 0, 0, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, 1, ]
+        obj.classify(-1.0f, false, 0, 1, "");
+        // Testing with values: [-1.0, false, 0, 1,  ]
+        obj.classify(-1.0f, false, 0, 1, " ");
+        // Testing with values: [-1.0, false, 0, 1, Bumblebee]
+        obj.classify(-1.0f, false, 0, 1, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, -1, ]
+        obj.classify(-1.0f, false, 0, -1, "");
+        // Testing with values: [-1.0, false, 0, -1,  ]
+        obj.classify(-1.0f, false, 0, -1, " ");
+        // Testing with values: [-1.0, false, 0, -1, Bumblebee]
+        obj.classify(-1.0f, false, 0, -1, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, 8, ]
+        obj.classify(-1.0f, false, 0, 8, "");
+        // Testing with values: [-1.0, false, 0, 8,  ]
+        obj.classify(-1.0f, false, 0, 8, " ");
+        // Testing with values: [-1.0, false, 0, 8, Bumblebee]
+        obj.classify(-1.0f, false, 0, 8, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, 9, ]
+        obj.classify(-1.0f, false, 0, 9, "");
+        // Testing with values: [-1.0, false, 0, 9,  ]
+        obj.classify(-1.0f, false, 0, 9, " ");
+        // Testing with values: [-1.0, false, 0, 9, Bumblebee]
+        obj.classify(-1.0f, false, 0, 9, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, 50, ]
+        obj.classify(-1.0f, false, 0, 50, "");
+        // Testing with values: [-1.0, false, 0, 50,  ]
+        obj.classify(-1.0f, false, 0, 50, " ");
+        // Testing with values: [-1.0, false, 0, 50, Bumblebee]
+        obj.classify(-1.0f, false, 0, 50, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, -50, ]
+        obj.classify(-1.0f, false, 0, -50, "");
+        // Testing with values: [-1.0, false, 0, -50,  ]
+        obj.classify(-1.0f, false, 0, -50, " ");
+        // Testing with values: [-1.0, false, 0, -50, Bumblebee]
+        obj.classify(-1.0f, false, 0, -50, "Bumblebee");
+        // Testing with values: [-1.0, false, 0, 10, ]
+        obj.classify(-1.0f, false, 0, 10, "");
+        // Testing with values: [-1.0, false, 0, 10,  ]
+        obj.classify(-1.0f, false, 0, 10, " ");
+        // Testing with values: [-1.0, false, 0, 10, Bumblebee]
+        obj.classify(-1.0f, false, 0, 10, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, 0, ]
+        obj.classify(-1.0f, false, 1, 0, "");
+        // Testing with values: [-1.0, false, 1, 0,  ]
+        obj.classify(-1.0f, false, 1, 0, " ");
+        // Testing with values: [-1.0, false, 1, 0, Bumblebee]
+        obj.classify(-1.0f, false, 1, 0, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, 1, ]
+        obj.classify(-1.0f, false, 1, 1, "");
+        // Testing with values: [-1.0, false, 1, 1,  ]
+        obj.classify(-1.0f, false, 1, 1, " ");
+        // Testing with values: [-1.0, false, 1, 1, Bumblebee]
+        obj.classify(-1.0f, false, 1, 1, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, -1, ]
+        obj.classify(-1.0f, false, 1, -1, "");
+        // Testing with values: [-1.0, false, 1, -1,  ]
+        obj.classify(-1.0f, false, 1, -1, " ");
+        // Testing with values: [-1.0, false, 1, -1, Bumblebee]
+        obj.classify(-1.0f, false, 1, -1, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, 8, ]
+        obj.classify(-1.0f, false, 1, 8, "");
+        // Testing with values: [-1.0, false, 1, 8,  ]
+        obj.classify(-1.0f, false, 1, 8, " ");
+        // Testing with values: [-1.0, false, 1, 8, Bumblebee]
+        obj.classify(-1.0f, false, 1, 8, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, 9, ]
+        obj.classify(-1.0f, false, 1, 9, "");
+        // Testing with values: [-1.0, false, 1, 9,  ]
+        obj.classify(-1.0f, false, 1, 9, " ");
+        // Testing with values: [-1.0, false, 1, 9, Bumblebee]
+        obj.classify(-1.0f, false, 1, 9, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, 50, ]
+        obj.classify(-1.0f, false, 1, 50, "");
+        // Testing with values: [-1.0, false, 1, 50,  ]
+        obj.classify(-1.0f, false, 1, 50, " ");
+        // Testing with values: [-1.0, false, 1, 50, Bumblebee]
+        obj.classify(-1.0f, false, 1, 50, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, -50, ]
+        obj.classify(-1.0f, false, 1, -50, "");
+        // Testing with values: [-1.0, false, 1, -50,  ]
+        obj.classify(-1.0f, false, 1, -50, " ");
+        // Testing with values: [-1.0, false, 1, -50, Bumblebee]
+        obj.classify(-1.0f, false, 1, -50, "Bumblebee");
+        // Testing with values: [-1.0, false, 1, 10, ]
+        obj.classify(-1.0f, false, 1, 10, "");
+        // Testing with values: [-1.0, false, 1, 10,  ]
+        obj.classify(-1.0f, false, 1, 10, " ");
+        // Testing with values: [-1.0, false, 1, 10, Bumblebee]
+        obj.classify(-1.0f, false, 1, 10, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, 0, ]
+        obj.classify(-1.0f, false, -1, 0, "");
+        // Testing with values: [-1.0, false, -1, 0,  ]
+        obj.classify(-1.0f, false, -1, 0, " ");
+        // Testing with values: [-1.0, false, -1, 0, Bumblebee]
+        obj.classify(-1.0f, false, -1, 0, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, 1, ]
+        obj.classify(-1.0f, false, -1, 1, "");
+        // Testing with values: [-1.0, false, -1, 1,  ]
+        obj.classify(-1.0f, false, -1, 1, " ");
+        // Testing with values: [-1.0, false, -1, 1, Bumblebee]
+        obj.classify(-1.0f, false, -1, 1, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, -1, ]
+        obj.classify(-1.0f, false, -1, -1, "");
+        // Testing with values: [-1.0, false, -1, -1,  ]
+        obj.classify(-1.0f, false, -1, -1, " ");
+        // Testing with values: [-1.0, false, -1, -1, Bumblebee]
+        obj.classify(-1.0f, false, -1, -1, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, 8, ]
+        obj.classify(-1.0f, false, -1, 8, "");
+        // Testing with values: [-1.0, false, -1, 8,  ]
+        obj.classify(-1.0f, false, -1, 8, " ");
+        // Testing with values: [-1.0, false, -1, 8, Bumblebee]
+        obj.classify(-1.0f, false, -1, 8, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, 9, ]
+        obj.classify(-1.0f, false, -1, 9, "");
+        // Testing with values: [-1.0, false, -1, 9,  ]
+        obj.classify(-1.0f, false, -1, 9, " ");
+        // Testing with values: [-1.0, false, -1, 9, Bumblebee]
+        obj.classify(-1.0f, false, -1, 9, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, 50, ]
+        obj.classify(-1.0f, false, -1, 50, "");
+        // Testing with values: [-1.0, false, -1, 50,  ]
+        obj.classify(-1.0f, false, -1, 50, " ");
+        // Testing with values: [-1.0, false, -1, 50, Bumblebee]
+        obj.classify(-1.0f, false, -1, 50, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, -50, ]
+        obj.classify(-1.0f, false, -1, -50, "");
+        // Testing with values: [-1.0, false, -1, -50,  ]
+        obj.classify(-1.0f, false, -1, -50, " ");
+        // Testing with values: [-1.0, false, -1, -50, Bumblebee]
+        obj.classify(-1.0f, false, -1, -50, "Bumblebee");
+        // Testing with values: [-1.0, false, -1, 10, ]
+        obj.classify(-1.0f, false, -1, 10, "");
+        // Testing with values: [-1.0, false, -1, 10,  ]
+        obj.classify(-1.0f, false, -1, 10, " ");
+        // Testing with values: [-1.0, false, -1, 10, Bumblebee]
+        obj.classify(-1.0f, false, -1, 10, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, 0, ]
+        obj.classify(-1.0f, false, 2, 0, "");
+        // Testing with values: [-1.0, false, 2, 0,  ]
+        obj.classify(-1.0f, false, 2, 0, " ");
+        // Testing with values: [-1.0, false, 2, 0, Bumblebee]
+        obj.classify(-1.0f, false, 2, 0, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, 1, ]
+        obj.classify(-1.0f, false, 2, 1, "");
+        // Testing with values: [-1.0, false, 2, 1,  ]
+        obj.classify(-1.0f, false, 2, 1, " ");
+        // Testing with values: [-1.0, false, 2, 1, Bumblebee]
+        obj.classify(-1.0f, false, 2, 1, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, -1, ]
+        obj.classify(-1.0f, false, 2, -1, "");
+        // Testing with values: [-1.0, false, 2, -1,  ]
+        obj.classify(-1.0f, false, 2, -1, " ");
+        // Testing with values: [-1.0, false, 2, -1, Bumblebee]
+        obj.classify(-1.0f, false, 2, -1, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, 8, ]
+        obj.classify(-1.0f, false, 2, 8, "");
+        // Testing with values: [-1.0, false, 2, 8,  ]
+        obj.classify(-1.0f, false, 2, 8, " ");
+        // Testing with values: [-1.0, false, 2, 8, Bumblebee]
+        obj.classify(-1.0f, false, 2, 8, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, 9, ]
+        obj.classify(-1.0f, false, 2, 9, "");
+        // Testing with values: [-1.0, false, 2, 9,  ]
+        obj.classify(-1.0f, false, 2, 9, " ");
+        // Testing with values: [-1.0, false, 2, 9, Bumblebee]
+        obj.classify(-1.0f, false, 2, 9, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, 50, ]
+        obj.classify(-1.0f, false, 2, 50, "");
+        // Testing with values: [-1.0, false, 2, 50,  ]
+        obj.classify(-1.0f, false, 2, 50, " ");
+        // Testing with values: [-1.0, false, 2, 50, Bumblebee]
+        obj.classify(-1.0f, false, 2, 50, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, -50, ]
+        obj.classify(-1.0f, false, 2, -50, "");
+        // Testing with values: [-1.0, false, 2, -50,  ]
+        obj.classify(-1.0f, false, 2, -50, " ");
+        // Testing with values: [-1.0, false, 2, -50, Bumblebee]
+        obj.classify(-1.0f, false, 2, -50, "Bumblebee");
+        // Testing with values: [-1.0, false, 2, 10, ]
+        obj.classify(-1.0f, false, 2, 10, "");
+        // Testing with values: [-1.0, false, 2, 10,  ]
+        obj.classify(-1.0f, false, 2, 10, " ");
+        // Testing with values: [-1.0, false, 2, 10, Bumblebee]
+        obj.classify(-1.0f, false, 2, 10, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, 0, ]
+        obj.classify(-1.0f, false, 3, 0, "");
+        // Testing with values: [-1.0, false, 3, 0,  ]
+        obj.classify(-1.0f, false, 3, 0, " ");
+        // Testing with values: [-1.0, false, 3, 0, Bumblebee]
+        obj.classify(-1.0f, false, 3, 0, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, 1, ]
+        obj.classify(-1.0f, false, 3, 1, "");
+        // Testing with values: [-1.0, false, 3, 1,  ]
+        obj.classify(-1.0f, false, 3, 1, " ");
+        // Testing with values: [-1.0, false, 3, 1, Bumblebee]
+        obj.classify(-1.0f, false, 3, 1, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, -1, ]
+        obj.classify(-1.0f, false, 3, -1, "");
+        // Testing with values: [-1.0, false, 3, -1,  ]
+        obj.classify(-1.0f, false, 3, -1, " ");
+        // Testing with values: [-1.0, false, 3, -1, Bumblebee]
+        obj.classify(-1.0f, false, 3, -1, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, 8, ]
+        obj.classify(-1.0f, false, 3, 8, "");
+        // Testing with values: [-1.0, false, 3, 8,  ]
+        obj.classify(-1.0f, false, 3, 8, " ");
+        // Testing with values: [-1.0, false, 3, 8, Bumblebee]
+        obj.classify(-1.0f, false, 3, 8, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, 9, ]
+        obj.classify(-1.0f, false, 3, 9, "");
+        // Testing with values: [-1.0, false, 3, 9,  ]
+        obj.classify(-1.0f, false, 3, 9, " ");
+        // Testing with values: [-1.0, false, 3, 9, Bumblebee]
+        obj.classify(-1.0f, false, 3, 9, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, 50, ]
+        obj.classify(-1.0f, false, 3, 50, "");
+        // Testing with values: [-1.0, false, 3, 50,  ]
+        obj.classify(-1.0f, false, 3, 50, " ");
+        // Testing with values: [-1.0, false, 3, 50, Bumblebee]
+        obj.classify(-1.0f, false, 3, 50, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, -50, ]
+        obj.classify(-1.0f, false, 3, -50, "");
+        // Testing with values: [-1.0, false, 3, -50,  ]
+        obj.classify(-1.0f, false, 3, -50, " ");
+        // Testing with values: [-1.0, false, 3, -50, Bumblebee]
+        obj.classify(-1.0f, false, 3, -50, "Bumblebee");
+        // Testing with values: [-1.0, false, 3, 10, ]
+        obj.classify(-1.0f, false, 3, 10, "");
+        // Testing with values: [-1.0, false, 3, 10,  ]
+        obj.classify(-1.0f, false, 3, 10, " ");
+        // Testing with values: [-1.0, false, 3, 10, Bumblebee]
+        obj.classify(-1.0f, false, 3, 10, "Bumblebee");
     }
 }

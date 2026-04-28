@@ -1,5 +1,4 @@
-import com.google.protobuf.Value;
-import fj.data.HashMap;
+import soot.Value;
 import soot.Type;
 
 import java.util.ArrayList;

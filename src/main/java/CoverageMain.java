@@ -8,14 +8,27 @@ import java.util.Collections;
 
 public class CoverageMain {
     public static void main(String[] args) {
-        // Clear old JUnit files before generating new ones
-        java.io.File generatedDir = new java.io.File("src/test/java/generated");
-        if (generatedDir.exists() && generatedDir.isDirectory()) {
-            for (java.io.File f : generatedDir.listFiles()) {
-                if (f.isFile() && f.getName().endsWith(".java")) {
-                    f.delete();
-                }
+        try {
+            java.nio.file.Path dir = java.nio.file.Paths.get("src/test/java/generated");
+            if (java.nio.file.Files.exists(dir)) {
+                java.nio.file.Files.walk(dir)
+                    .sorted(java.util.Comparator.reverseOrder())
+                    .map(java.nio.file.Path::toFile)
+                    .forEach(java.io.File::delete);
+                System.out.println("Cleared old tests from src/test/java/generated");
             }
+            java.nio.file.Files.createDirectories(dir);
+
+            java.nio.file.Path targetDir = java.nio.file.Paths.get("target/test-classes/generated");
+            if (java.nio.file.Files.exists(targetDir)) {
+                java.nio.file.Files.walk(targetDir)
+                    .sorted(java.util.Comparator.reverseOrder())
+                    .map(java.nio.file.Path::toFile)
+                    .forEach(java.io.File::delete);
+                System.out.println("Cleared old compiled tests from target/test-classes/generated");
+            }
+        } catch (java.io.IOException e) {
+            System.err.println("Failed to clear old generated tests: " + e.getMessage());
         }
 
         // Find target class dynamically from src/test/java

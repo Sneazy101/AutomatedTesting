@@ -101,63 +101,42 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
             // Report the test values persistently using leftOp's type and Symbolic Tracing
             Tracer.ExprNode leftExpr = tracer.resolveValue(leftOp);
             
-            if (leftOp.getType() == soot.IntType.v()) {
-                Object parsed = parseValue(leftOp.getType(), rightOp.toString());
-                if (parsed instanceof Integer) {
-                    int val = (Integer) parsed;
-                    if (operator.equals("==")) {
-                        solveForInput(leftExpr, val);
-                        solveForInput(leftExpr, val + 1);
-                    } else if (operator.equals("!=")) {
-                        solveForInput(leftExpr, val + 1);
-                        solveForInput(leftExpr, val);
-                    } else if (operator.equals(">")) {
-                        solveForInput(leftExpr, val + 1);
-                        solveForInput(leftExpr, val);
-                    } else if (operator.equals("<")) {
-                        solveForInput(leftExpr, val - 1);
-                        solveForInput(leftExpr, val);
-                    } else if (operator.equals(">=")) {
-                        solveForInput(leftExpr, val);
-                        solveForInput(leftExpr, val - 1);
-                    } else if (operator.equals("<=")) {
-                        solveForInput(leftExpr, val);
-                        solveForInput(leftExpr, val + 1);
-                    }
+            if (leftOp.getType() == soot.IntType.v() || leftOp.getType() == soot.FloatType.v() || leftOp.getType() == soot.ShortType.v() || leftOp.getType() == soot.ByteType.v()) {
+                Double rightConst = evaluateConstant(rightNode);
+                if (rightConst != null) {
+                    double val = rightConst;
+                    solveWithOperator(leftExpr, val, operator);
                 } else {
-                    reporter.addNewTestCase(leftOp, parsed);
-                }
-            } else if (leftOp.getType() == soot.FloatType.v()) {
-                Object parsed = parseValue(leftOp.getType(), rightOp.toString());
-                if (parsed instanceof Float) {
-                    float val = (Float) parsed;
-                    if (operator.equals("==")) {
-                        solveForInput(leftExpr, val);
-                        solveForInput(leftExpr, val + 1.0f);
-                    } else if (operator.equals("!=")) {
-                        solveForInput(leftExpr, val + 1.0f);
-                        solveForInput(leftExpr, val);
-                    } else if (operator.equals(">")) {
-                        solveForInput(leftExpr, val + 1.0f);
-                        solveForInput(leftExpr, val);
-                    } else if (operator.equals("<")) {
-                        solveForInput(leftExpr, val - 1.0f);
-                        solveForInput(leftExpr, val);
-                    } else if (operator.equals(">=")) {
-                        solveForInput(leftExpr, val);
-                        solveForInput(leftExpr, val - 1.0f);
-                    } else if (operator.equals("<=")) {
-                        solveForInput(leftExpr, val);
-                        solveForInput(leftExpr, val + 1.0f);
-                    }
-                } else {
-                    reporter.addNewTestCase(leftOp, parsed);
+                    Tracer.ExprNode diffExpr = new Tracer.BinaryOpNode("-", leftExpr, rightNode);
+                    solveWithOperator(diffExpr, 0, operator);
                 }
             } else if (leftOp.getType().toString().equals("java.lang.String")) {
                 if (expr.contains("==") || expr.contains("!=")) {
                     reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
                 }
             }
+        }
+    }
+
+    private void solveWithOperator(Tracer.ExprNode expr, double val, String operator) {
+        if (operator.equals("==")) {
+            solveForInput(expr, val);
+            solveForInput(expr, val + 1);
+        } else if (operator.equals("!=")) {
+            solveForInput(expr, val + 1);
+            solveForInput(expr, val);
+        } else if (operator.equals(">")) {
+            solveForInput(expr, val + 1);
+            solveForInput(expr, val);
+        } else if (operator.equals("<")) {
+            solveForInput(expr, val - 1);
+            solveForInput(expr, val);
+        } else if (operator.equals(">=")) {
+            solveForInput(expr, val);
+            solveForInput(expr, val - 1);
+        } else if (operator.equals("<=")) {
+            solveForInput(expr, val);
+            solveForInput(expr, val + 1);
         }
     }
 
@@ -243,27 +222,91 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
             String op = binop.getOperator();
             
             if (leftConst != null && rightConst == null) {
-                if (op.equals("+")) {
-                    solveForInput(binop.getRight(), targetValue - leftConst);
-                } else if (op.equals("-")) {
-                    solveForInput(binop.getRight(), leftConst - targetValue);
-                } else if (op.equals("*")) {
-                    if (leftConst != 0) solveForInput(binop.getRight(), targetValue / leftConst);
-                } else if (op.equals("/")) {
-                    if (targetValue != 0) solveForInput(binop.getRight(), leftConst / targetValue);
-                }
+                solveWithConstant(binop.getRight(), targetValue, leftConst, op, false);
             } else if (leftConst == null && rightConst != null) {
-                if (op.equals("+")) {
-                    solveForInput(binop.getLeft(), targetValue - rightConst);
-                } else if (op.equals("-")) {
-                    solveForInput(binop.getLeft(), targetValue + rightConst);
-                } else if (op.equals("*")) {
-                    if (rightConst != 0) solveForInput(binop.getLeft(), targetValue / rightConst);
-                } else if (op.equals("/")) {
-                    solveForInput(binop.getLeft(), targetValue * rightConst);
+                solveWithConstant(binop.getLeft(), targetValue, rightConst, op, true);
+            } else if (leftConst == null && rightConst == null) {
+                List<Double> leftPossibleValues = evaluateAllPossibleValues(binop.getLeft());
+                for (Double lVal : leftPossibleValues) {
+                    solveWithConstant(binop.getRight(), targetValue, lVal, op, false);
+                }
+
+                List<Double> rightPossibleValues = evaluateAllPossibleValues(binop.getRight());
+                for (Double rVal : rightPossibleValues) {
+                    solveWithConstant(binop.getLeft(), targetValue, rVal, op, true);
                 }
             }
         }
+    }
+
+    private void solveWithConstant(Tracer.ExprNode exprToSolve, double targetValue, double constVal, String op, boolean isLeftSymbolic) {
+        if (!isLeftSymbolic) { // left is constant, right is symbolic
+            if (op.equals("+")) {
+                solveForInput(exprToSolve, targetValue - constVal);
+            } else if (op.equals("-")) {
+                solveForInput(exprToSolve, constVal - targetValue);
+            } else if (op.equals("*")) {
+                if (constVal != 0) solveForInput(exprToSolve, targetValue / constVal);
+            } else if (op.equals("/")) {
+                if (targetValue != 0) solveForInput(exprToSolve, constVal / targetValue);
+            }
+        } else { // left is symbolic, right is constant
+            if (op.equals("+")) {
+                solveForInput(exprToSolve, targetValue - constVal);
+            } else if (op.equals("-")) {
+                solveForInput(exprToSolve, targetValue + constVal);
+            } else if (op.equals("*")) {
+                if (constVal != 0) solveForInput(exprToSolve, targetValue / constVal);
+            } else if (op.equals("/")) {
+                solveForInput(exprToSolve, targetValue * constVal);
+            }
+        }
+    }
+
+    private List<Double> evaluateAllPossibleValues(Tracer.ExprNode expr) {
+        List<Double> results = new ArrayList<>();
+        if (expr instanceof Tracer.ConstNode) {
+            Double val = evaluateConstant(expr);
+            if (val != null) results.add(val);
+        } else if (expr instanceof Tracer.VarNode) {
+            Tracer.VarNode varNode = (Tracer.VarNode) expr;
+            Value v = varNode.getSootValue();
+            if (v != null) {
+                List<Object> states = reporter.getValueStates(v);
+                if (states != null) {
+                    for (Object state : states) {
+                        if (state instanceof Number) {
+                            results.add(((Number) state).doubleValue());
+                        } else if (state instanceof Boolean) {
+                            results.add((Boolean) state ? 1.0 : 0.0);
+                        }
+                    }
+                }
+            }
+        } else if (expr instanceof Tracer.BinaryOpNode) {
+            Tracer.BinaryOpNode binop = (Tracer.BinaryOpNode) expr;
+            List<Double> leftVals = evaluateAllPossibleValues(binop.getLeft());
+            List<Double> rightVals = evaluateAllPossibleValues(binop.getRight());
+            for (Double l : leftVals) {
+                for (Double r : rightVals) {
+                    switch (binop.getOperator()) {
+                        case "+": results.add(l + r); break;
+                        case "-": results.add(l - r); break;
+                        case "*": results.add(l * r); break;
+                        case "/": if (r != 0) results.add(l / r); break;
+                    }
+                }
+            }
+        } else if (expr instanceof Tracer.UnaryOpNode) {
+            Tracer.UnaryOpNode unop = (Tracer.UnaryOpNode) expr;
+            List<Double> vals = evaluateAllPossibleValues(unop.getOperand());
+            for (Double v : vals) {
+                if (unop.getOperator().equals("-")) {
+                    results.add(-v);
+                }
+            }
+        }
+        return new ArrayList<>(new java.util.HashSet<>(results));
     }
 
     private void HandleSwitch(soot.jimple.SwitchStmt switchStmt, Tracer tracer) {
