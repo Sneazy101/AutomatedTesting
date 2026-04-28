@@ -1,6 +1,6 @@
-/mnt/c/Users/moham/Desktop/coverage/src/main/java/CoverageMain.java
-/mnt/c/Users/moham/Desktop/coverage/src/main/java/Tracer.java
-/mnt/c/Users/moham/Desktop/coverage/src/main/java/TestValues.java
-/mnt/c/Users/moham/Desktop/coverage/src/main/java/CoverageAnalysis.java
-/mnt/c/Users/moham/Desktop/coverage/src/main/java/CoverageTransformer.java
-/mnt/c/Users/moham/Desktop/coverage/src/main/java/SootAnalyzer.java
+/home/sneazy/Desktop/CMPT479Project./CMPT479Project/JWFuzz/src/main/java/CoverageTransformer.java
+/home/sneazy/Desktop/CMPT479Project./CMPT479Project/JWFuzz/src/main/java/CoverageMain.java
+/home/sneazy/Desktop/CMPT479Project./CMPT479Project/JWFuzz/src/main/java/Tracer.java
+/home/sneazy/Desktop/CMPT479Project./CMPT479Project/JWFuzz/src/main/java/TestValues.java
+/home/sneazy/Desktop/CMPT479Project./CMPT479Project/JWFuzz/src/main/java/CoverageAnalysis.java
+/home/sneazy/Desktop/CMPT479Project./CMPT479Project/JWFuzz/src/main/java/SootAnalyzer.java

@@ -1,24 +1,40 @@
 public class BranchTarget {
 
-    public int classify(int age, boolean hasId, boolean vip, int purchases) {
+    public int classify(float age, boolean hasId, int purchases, int money, String s) {
         if (age < 0) {
             return -1;
         }
 
+        age = age * money;
+
+
+        int balance = 0;
         if (age < 18) {
             if (hasId) {
-                return 1;
-            } else {
-                return 2;
+                balance = 10;
             }
         }
 
-        if (vip && purchases > 10) {
-            return 3;
+        if(s == "Bumblebee"){
+            return balance;
         }
 
-        if (vip || purchases > 20) {
-            return 4;
+        if(money > 8){
+            balance *= 2;
+        }
+
+        money *=10;
+
+        int val = 0;
+        if (balance > 0) {
+            if(money * balance > 500){
+                val = money* balance / 30;
+                return val;
+            }
+        }
+
+        if (money > 1000) {
+            return 11;
         }
 
         switch (purchases) {

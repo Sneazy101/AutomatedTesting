@@ -98,30 +98,45 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
             Tracer.ExprNode eqNode = new Tracer.BinaryOpNode(operator, leftNode, rightNode);
             tracer.addEquation(eqNode);
 
-            // Report the test values persistently using leftOp's type
-            if (leftOp.getType() == soot.IntType.v()) {
-                if (operator.equals("==") || operator.equals("!=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">") || operator.equals("<")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">=") || operator.equals("<=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                }
-            } else if (leftOp.getType() == soot.FloatType.v()) {
-                if (operator.equals("==") || operator.equals("!=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">") || operator.equals("<")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (operator.equals(">=") || operator.equals("<=")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
+            // Report the test values persistently using leftOp's type and Symbolic Tracing
+            Tracer.ExprNode leftExpr = tracer.resolveValue(leftOp);
+            
+            if (leftOp.getType() == soot.IntType.v() || leftOp.getType() == soot.FloatType.v() || leftOp.getType() == soot.ShortType.v() || leftOp.getType() == soot.ByteType.v()) {
+                Double rightConst = evaluateConstant(rightNode);
+                if (rightConst != null) {
+                    double val = rightConst;
+                    solveWithOperator(leftExpr, val, operator);
+                } else {
+                    Tracer.ExprNode diffExpr = new Tracer.BinaryOpNode("-", leftExpr, rightNode);
+                    solveWithOperator(diffExpr, 0, operator);
                 }
             } else if (leftOp.getType().toString().equals("java.lang.String")) {
-                if (expr.contains("==")) {
-                    reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
-                } else if (expr.contains("!=")) {
+                if (expr.contains("==") || expr.contains("!=")) {
                     reporter.addNewTestCase(leftOp, parseValue(leftOp.getType(), rightOp.toString()));
                 }
             }
+        }
+    }
+
+    private void solveWithOperator(Tracer.ExprNode expr, double val, String operator) {
+        if (operator.equals("==")) {
+            solveForInput(expr, val);
+            solveForInput(expr, val + 1);
+        } else if (operator.equals("!=")) {
+            solveForInput(expr, val + 1);
+            solveForInput(expr, val);
+        } else if (operator.equals(">")) {
+            solveForInput(expr, val + 1);
+            solveForInput(expr, val);
+        } else if (operator.equals("<")) {
+            solveForInput(expr, val - 1);
+            solveForInput(expr, val);
+        } else if (operator.equals(">=")) {
+            solveForInput(expr, val);
+            solveForInput(expr, val - 1);
+        } else if (operator.equals("<=")) {
+            solveForInput(expr, val);
+            solveForInput(expr, val + 1);
         }
     }
 
@@ -153,16 +168,193 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
         return valStr;
     }
 
+    private Double evaluateConstant(Tracer.ExprNode expr) {
+        if (expr instanceof Tracer.ConstNode) {
+            String valStr = ((Tracer.ConstNode) expr).getValue().replaceAll("[fFlLdD]$", "");
+            try {
+                return Double.parseDouble(valStr);
+            } catch (NumberFormatException e) {
+                return null;
+            }
+        } else if (expr instanceof Tracer.BinaryOpNode) {
+            Tracer.BinaryOpNode binop = (Tracer.BinaryOpNode) expr;
+            Double leftVal = evaluateConstant(binop.getLeft());
+            Double rightVal = evaluateConstant(binop.getRight());
+            if (leftVal == null || rightVal == null) return null;
+            
+            switch (binop.getOperator()) {
+                case "+": return leftVal + rightVal;
+                case "-": return leftVal - rightVal;
+                case "*": return leftVal * rightVal;
+                case "/": return rightVal != 0 ? leftVal / rightVal : null;
+                default: return null;
+            }
+        } else if (expr instanceof Tracer.UnaryOpNode) {
+            Tracer.UnaryOpNode unop = (Tracer.UnaryOpNode) expr;
+            Double val = evaluateConstant(unop.getOperand());
+            if (val == null) return null;
+            if (unop.getOperator().equals("-")) return -val;
+            return null;
+        }
+        return null;
+    }
+
+    private void solveForInput(Tracer.ExprNode expr, double targetValue) {
+        if (expr instanceof Tracer.VarNode) {
+            Tracer.VarNode varNode = (Tracer.VarNode) expr;
+            Value sootValue = varNode.getSootValue();
+            if (sootValue != null) {
+                Object finalVal = targetValue;
+                if (sootValue.getType() == soot.IntType.v() || sootValue.getType() == soot.ShortType.v() || sootValue.getType() == soot.ByteType.v()) {
+                    finalVal = (int) targetValue;
+                } else if (sootValue.getType() == soot.FloatType.v()) {
+                    finalVal = (float) targetValue;
+                } else if (sootValue.getType() == soot.LongType.v()) {
+                    finalVal = (long) targetValue;
+                }
+                reporter.addNewTestCase(sootValue, finalVal);
+            }
+        } else if (expr instanceof Tracer.BinaryOpNode) {
+            Tracer.BinaryOpNode binop = (Tracer.BinaryOpNode) expr;
+            Double leftConst = evaluateConstant(binop.getLeft());
+            Double rightConst = evaluateConstant(binop.getRight());
+            
+            String op = binop.getOperator();
+            
+            if (leftConst != null && rightConst == null) {
+                solveWithConstant(binop.getRight(), targetValue, leftConst, op, false);
+            } else if (leftConst == null && rightConst != null) {
+                solveWithConstant(binop.getLeft(), targetValue, rightConst, op, true);
+            } else if (leftConst == null && rightConst == null) {
+                List<Double> leftPossibleValues = evaluateAllPossibleValues(binop.getLeft());
+                for (Double lVal : leftPossibleValues) {
+                    solveWithConstant(binop.getRight(), targetValue, lVal, op, false);
+                }
+
+                List<Double> rightPossibleValues = evaluateAllPossibleValues(binop.getRight());
+                for (Double rVal : rightPossibleValues) {
+                    solveWithConstant(binop.getLeft(), targetValue, rVal, op, true);
+                }
+            }
+        }
+    }
+
+    private void solveWithConstant(Tracer.ExprNode exprToSolve, double targetValue, double constVal, String op, boolean isLeftSymbolic) {
+        if (!isLeftSymbolic) { // left is constant, right is symbolic
+            if (op.equals("+")) {
+                solveForInput(exprToSolve, targetValue - constVal);
+            } else if (op.equals("-")) {
+                solveForInput(exprToSolve, constVal - targetValue);
+            } else if (op.equals("*")) {
+                if (constVal != 0) solveForInput(exprToSolve, targetValue / constVal);
+            } else if (op.equals("/")) {
+                if (targetValue != 0) solveForInput(exprToSolve, constVal / targetValue);
+            }
+        } else { // left is symbolic, right is constant
+            if (op.equals("+")) {
+                solveForInput(exprToSolve, targetValue - constVal);
+            } else if (op.equals("-")) {
+                solveForInput(exprToSolve, targetValue + constVal);
+            } else if (op.equals("*")) {
+                if (constVal != 0) solveForInput(exprToSolve, targetValue / constVal);
+            } else if (op.equals("/")) {
+                solveForInput(exprToSolve, targetValue * constVal);
+            }
+        }
+    }
+
+    private List<Double> evaluateAllPossibleValues(Tracer.ExprNode expr) {
+        List<Double> results = new ArrayList<>();
+        if (expr instanceof Tracer.ConstNode) {
+            Double val = evaluateConstant(expr);
+            if (val != null) results.add(val);
+        } else if (expr instanceof Tracer.VarNode) {
+            Tracer.VarNode varNode = (Tracer.VarNode) expr;
+            Value v = varNode.getSootValue();
+            if (v != null) {
+                List<Object> states = reporter.getValueStates(v);
+                if (states != null) {
+                    for (Object state : states) {
+                        if (state instanceof Number) {
+                            results.add(((Number) state).doubleValue());
+                        } else if (state instanceof Boolean) {
+                            results.add((Boolean) state ? 1.0 : 0.0);
+                        }
+                    }
+                }
+            }
+        } else if (expr instanceof Tracer.BinaryOpNode) {
+            Tracer.BinaryOpNode binop = (Tracer.BinaryOpNode) expr;
+            List<Double> leftVals = evaluateAllPossibleValues(binop.getLeft());
+            List<Double> rightVals = evaluateAllPossibleValues(binop.getRight());
+            for (Double l : leftVals) {
+                for (Double r : rightVals) {
+                    switch (binop.getOperator()) {
+                        case "+": results.add(l + r); break;
+                        case "-": results.add(l - r); break;
+                        case "*": results.add(l * r); break;
+                        case "/": if (r != 0) results.add(l / r); break;
+                    }
+                }
+            }
+        } else if (expr instanceof Tracer.UnaryOpNode) {
+            Tracer.UnaryOpNode unop = (Tracer.UnaryOpNode) expr;
+            List<Double> vals = evaluateAllPossibleValues(unop.getOperand());
+            for (Double v : vals) {
+                if (unop.getOperator().equals("-")) {
+                    results.add(-v);
+                }
+            }
+        }
+        return new ArrayList<>(new java.util.HashSet<>(results));
+    }
+
+    private void HandleSwitch(soot.jimple.SwitchStmt switchStmt, Tracer tracer) {
+        if (switchStmt instanceof soot.jimple.LookupSwitchStmt) {
+            soot.jimple.LookupSwitchStmt lookupStmt = (soot.jimple.LookupSwitchStmt) switchStmt;
+            Value key = lookupStmt.getKey();
+            Tracer.ExprNode keyExpr = tracer.resolveValue(key);
+            
+            int maxVal = Integer.MIN_VALUE;
+            boolean hasValues = false;
+            for (Object valObj : lookupStmt.getLookupValues()) {
+                int v = 0;
+                if (valObj instanceof soot.jimple.IntConstant) {
+                    v = ((soot.jimple.IntConstant) valObj).value;
+                } else if (valObj instanceof Integer) {
+                    v = (Integer) valObj;
+                }
+                solveForInput(keyExpr, v);
+                if (v > maxVal) maxVal = v;
+                hasValues = true;
+            }
+            if (hasValues) {
+                solveForInput(keyExpr, maxVal + 1); // default case
+            } else {
+                solveForInput(keyExpr, 0); // default case
+            }
+        } else if (switchStmt instanceof soot.jimple.TableSwitchStmt) {
+            soot.jimple.TableSwitchStmt tableStmt = (soot.jimple.TableSwitchStmt) switchStmt;
+            Value key = tableStmt.getKey();
+            Tracer.ExprNode keyExpr = tracer.resolveValue(key);
+            int low = tableStmt.getLowIndex();
+            int high = tableStmt.getHighIndex();
+            for (int i = low; i <= high; i++) {
+                solveForInput(keyExpr, i);
+            }
+            solveForInput(keyExpr, high + 1); // default case
+        }
+    }
+
     @Override
     protected void flowThrough(Tracer in, Unit s, List<Tracer> fallOut, List<Tracer> branchOuts) {
-        // 1. Copy incoming state to all fallthrough targets
-        for (Tracer out : fallOut) {
-            copy(in, out);
-        }
-        
-        // 2. Copy incoming state to all branch targets
-        for (Tracer out : branchOuts) {
-            copy(in, out);
+
+        if (s instanceof IfStmt) {
+            IfStmt ifStmt = (IfStmt) s;
+            Value condition = ifStmt.getCondition();
+            HandleCondition( condition, in);
+        } else if (s instanceof soot.jimple.SwitchStmt) {
+            HandleSwitch((soot.jimple.SwitchStmt) s, in);
         }
 
         // Track assignments to build symbolic state
@@ -198,26 +390,16 @@ public class CoverageAnalysis extends ForwardBranchedFlowAnalysis<Tracer> {
             }
             
             if (rightNode != null) {
-                for (Tracer out : fallOut) {
-                    out.putSymbol(leftOp.toString(), rightNode);
-                }
-                for (Tracer out : branchOuts) {
-                    out.putSymbol(leftOp.toString(), rightNode);
-                }
+                in.putSymbol(leftOp.toString(), rightNode);
             }
         }
 
-        if (s instanceof IfStmt) {
-            IfStmt ifStmt = (IfStmt) s;
-            Value condition = ifStmt.getCondition();
-            
-            // Apply the condition analysis to the outgoing flow sets
-            for (Tracer out : fallOut) {
-                HandleCondition(condition, out);
-            }
-            for (Tracer out : branchOuts) {
-                HandleCondition(condition, out);
-            }
+        for (Tracer out : fallOut) {
+            copy(in, out);
+        }
+
+        for (Tracer out : branchOuts) {
+            copy(in, out);
         }
     }
 }

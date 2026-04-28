@@ -1,5 +1,4 @@
-import com.google.protobuf.Value;
-import fj.data.HashMap;
+import soot.Value;
 import soot.Type;
 
 import java.util.ArrayList;
@@ -50,12 +49,8 @@ public class TestValues {
 
         int total = 1;
         for (soot.Value v : functionInputs) {
-            List<Object> inputData = map.get(v);
-            if (inputData == null || inputData.isEmpty()) {
-                System.out.println("No input data found for variable: " + v);
-                return new ArrayList<>();
-            }
-            total *= inputData.size();
+            System.out.println("Input Variable: " + v + ", Data Type: " + dataTypes.get(v) + ", Test Values: " + map.get(v));
+            total *= map.get(v).size();
         }
 
         System.out.println("The number of tests to be generated -> " + total);
@@ -74,10 +69,10 @@ public class TestValues {
             testCases = temp;
         }
 
-        System.out.println("Printing all test cases");
-        for (ArrayList<Object> testCase : testCases) {
-            System.out.println("Generated Test Case: " + testCase);
-        }
+//        System.out.println("Printing all test cases");
+//        for (ArrayList<Object> testCase : testCases) {
+//            System.out.println("Generated Test Case: " + testCase);
+//        }
 
         return testCases;
     }
