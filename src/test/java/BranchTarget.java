@@ -5,6 +5,8 @@ public class BranchTarget {
             return -1;
         }
 
+        age = age * 10;
+
         if (age < 18) {
             if (hasId) {
                 return 1;
